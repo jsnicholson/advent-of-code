@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include <assert.h>
+#include <iostream>
 
 static class Utils {
 public:
@@ -15,4 +16,14 @@ public:
 
         assert(!data.empty());
 	}
+
+    template <typename T>
+    static void Run() {
+        std::string typeName = std::string(typeid(T).name());
+        std::string dayName = typeName.substr(typeName.find(" ") + 1);
+
+        std::cout << "Advent Of Code : " << dayName << std::endl;
+        Day* day = new T();
+        day->Run();
+    }
 };

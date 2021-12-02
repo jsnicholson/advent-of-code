@@ -1,12 +1,10 @@
 #include <iostream>
 #include "Days.hpp"
+#include "Utils.hpp"
 
 int main(int argc, char* argv[]) {
 	
-	std::cout << "Advent of Code : Day 1" << std::endl;
-
-	Day* day = new Day1();
-	day->Run();
+	Utils::Run<Day1>();
 
 	return 0;
 }
