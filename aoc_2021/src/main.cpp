@@ -3,7 +3,6 @@
 #include "Days.hpp"
 
 const char* banner = R"(
-
               _                 _            __    _____          _      
      /\      | |               | |          / _|  / ____|        | |     
     /  \   __| |_   _____ _ __ | |_    ___ | |_  | |     ___   __| | ___ 
@@ -39,6 +38,6 @@ void PrintBanner() {
 }
 
 int main(int argc, char* argv[]) {	
-	Run<Day1>();
+	Run<Day2>();
 	return 0;
 }
