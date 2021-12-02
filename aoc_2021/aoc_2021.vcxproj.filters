@@ -21,92 +21,92 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="day1.cpp">
+    <ClCompile Include="src\day1\Day1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Day2.cpp">
+    <ClCompile Include="src\day2\Day2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Day.cpp">
+    <ClCompile Include="src\day3\Day3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Day3.cpp">
+    <ClCompile Include="src\day4\Day4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DayTemplate.cpp">
+    <ClCompile Include="src\day5\Day5.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Day4.cpp">
+    <ClCompile Include="src\day6\Day6.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Day5.cpp">
+    <ClCompile Include="src\day7\Day7.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Day6.cpp">
+    <ClCompile Include="src\day8\Day8.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Day7.cpp">
+    <ClCompile Include="src\day9\Day9.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Day8.cpp">
+    <ClCompile Include="src\day10\Day10.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Day9.cpp">
+    <ClCompile Include="src\frame\Day.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Day10.cpp">
+    <ClCompile Include="src\frame\DayTemplate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input_day1.txt">
+    <Text Include="resources\input_day1.txt">
       <Filter>Resource Files\input</Filter>
     </Text>
-    <Text Include="input_day2.txt">
+    <Text Include="resources\input_day2.txt">
       <Filter>Resource Files\input</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="day1.h">
+    <ClInclude Include="src\day1\Day1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Days.hpp">
+    <ClInclude Include="src\day2\Day2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Day2.h">
+    <ClInclude Include="src\day3\Day3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Day.h">
+    <ClInclude Include="src\day4\Day4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utils.hpp">
+    <ClInclude Include="src\day5\Day5.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Day3.h">
+    <ClInclude Include="src\day6\Day6.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DayTemplate.h">
+    <ClInclude Include="src\day7\Day7.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Day4.h">
+    <ClInclude Include="src\day8\Day8.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Day5.h">
+    <ClInclude Include="src\day9\Day9.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Day6.h">
+    <ClInclude Include="src\day10\Day10.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Day7.h">
+    <ClInclude Include="src\utils\Utils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Day8.h">
+    <ClInclude Include="src\frame\Day.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Day9.h">
+    <ClInclude Include="src\frame\Days.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Day10.h">
+    <ClInclude Include="src\frame\DayTemplate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

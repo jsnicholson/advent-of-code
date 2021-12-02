@@ -1,5 +1,6 @@
 #pragma once
 #include "Day.h"
+
 #include <string>
 
 class DayTemplate : public Day {

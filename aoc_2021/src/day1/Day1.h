@@ -1,5 +1,6 @@
 #pragma once
 #include "Day.h"
+
 #include <list>
 
 class Day1 : public Day {
@@ -15,5 +16,5 @@ private:
 	int HowManyIncreased(std::list<int> numbers);
 
 protected:
-	std::string GetInput() { return "input_day1.txt"; };
+	std::string GetInput() { return "resources\\input_day1.txt"; };
 };

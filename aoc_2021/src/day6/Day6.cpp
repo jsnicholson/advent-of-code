@@ -1,4 +1,5 @@
 #include "Day6.h"
+
 #include <iostream>
 
 void Day6::Parse() {

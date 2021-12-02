@@ -1,4 +1,5 @@
 #include "day1.h"
+
 #include <assert.h>
 #include <fstream>
 #include <iostream>
