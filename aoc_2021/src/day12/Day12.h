@@ -3,7 +3,7 @@
 
 #include <string>
 
-class Day10 : public Day {
+class Day12 : public Day {
 
 private:
 	void Parse() override;
@@ -11,5 +11,5 @@ private:
 	int Part2() override;
 
 protected:
-	std::string GetInput() { return "input_day1.txt"; };
+	std::string GetInput() { return "input_day2.txt"; };
 };

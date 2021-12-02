@@ -3,7 +3,7 @@
 
 #include <string>
 
-class Day10 : public Day {
+class Day14 : public Day {
 
 private:
 	void Parse() override;
