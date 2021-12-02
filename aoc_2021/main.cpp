@@ -5,8 +5,8 @@ int main(int argc, char* argv[]) {
 	
 	std::cout << "Advent of Code : Day 1" << std::endl;
 
-	Day1* day = new Day1();
-	day->Run("input_day1.txt");
+	Day2* day = new Day2();
+	day->Run("input_day2.txt");
 
 	return 0;
 }
