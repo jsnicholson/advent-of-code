@@ -3,6 +3,8 @@
 
 #include <list>
 
+// Sonar Sweep
+
 class Day1 : public Day {
 private:
 	std::list<int> depths;
