@@ -10,9 +10,6 @@ public:
 
 private:
 	void Parse(const char* filename, std::list<int>& lines);
-	int Part1();
-	int Part2();
-
-private:
-	std::list<int> numbers;
+	int Part1(std::list<int> numbers);
+	int Part2(std::list<int> numbers);
 };
