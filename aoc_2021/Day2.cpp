@@ -1,4 +1,4 @@
-#include "day2.h"
+#include "Day2.h"
 #include <assert.h>
 #include <fstream>
 #include <iostream>
