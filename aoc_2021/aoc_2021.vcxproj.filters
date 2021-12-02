@@ -87,6 +87,21 @@
     <ClCompile Include="src\day20\Day20.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\day21\Day21.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\day22\Day22.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\day23\Day23.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\day24\Day24.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\day25\Day25.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="resources\input_day1.txt">
@@ -167,6 +182,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\day20\Day20.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\day21\Day21.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\day22\Day22.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\day23\Day23.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\day24\Day24.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\day25\Day25.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

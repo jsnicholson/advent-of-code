@@ -11,5 +11,5 @@ private:
 	int Part2() override;
 
 protected:
-	std::string GetInput() { return "input_day2.txt"; };
+	std::string GetInput() { return "resources\\input_day1.txt"; };
 };

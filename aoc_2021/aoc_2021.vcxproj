@@ -151,6 +151,11 @@
     <ClCompile Include="src\day18\Day18.cpp" />
     <ClCompile Include="src\day19\Day19.cpp" />
     <ClCompile Include="src\day20\Day20.cpp" />
+    <ClCompile Include="src\day21\Day21.cpp" />
+    <ClCompile Include="src\day22\Day22.cpp" />
+    <ClCompile Include="src\day23\Day23.cpp" />
+    <ClCompile Include="src\day24\Day24.cpp" />
+    <ClCompile Include="src\day25\Day25.cpp" />
     <ClCompile Include="src\frame\Day.cpp" />
     <ClCompile Include="src\day1\Day1.cpp" />
     <ClCompile Include="src\day10\Day10.cpp" />
@@ -180,6 +185,11 @@
     <ClInclude Include="src\day18\Day18.h" />
     <ClInclude Include="src\day19\Day19.h" />
     <ClInclude Include="src\day20\Day20.h" />
+    <ClInclude Include="src\day21\Day21.h" />
+    <ClInclude Include="src\day22\Day22.h" />
+    <ClInclude Include="src\day23\Day23.h" />
+    <ClInclude Include="src\day24\Day24.h" />
+    <ClInclude Include="src\day25\Day25.h" />
     <ClInclude Include="src\frame\Day.h" />
     <ClInclude Include="src\day1\Day1.h" />
     <ClInclude Include="src\day10\Day10.h" />
