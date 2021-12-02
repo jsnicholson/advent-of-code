@@ -1,15 +1,19 @@
 #pragma once
-#include <vector>
-#include <string>
+#include "Day.h"
 #include <list>
 
-class Day1
-{
-public:
-	void Run(const char* filename);
+class Day1 : public Day {
+private:
+	std::list<int> depths;
 
 private:
-	void Parse(const char* filename, std::list<int>& lines);
-	int Part1(std::list<int> numbers);
-	int Part2(std::list<int> numbers);
+	void Parse() override;
+	int Part1() override;
+	int Part2() override;
+
+private:
+	int HowManyIncreased(std::list<int> numbers);
+
+protected:
+	std::string GetInput() { return "input_day1.txt"; };
 };
