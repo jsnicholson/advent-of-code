@@ -49,12 +49,12 @@ int Day3::Part2() {
             }), co2Candidates.end());
         }
         // take final values
-        if (oxygenCandidates.size() == 1 && co2Candidates.size() == 1) {
-            oxygen = oxygenCandidates.front();
-            co2 = co2Candidates.front();
-            break;
-        }    
+        if (oxygenCandidates.size() == 1 && co2Candidates.size() == 1)   
+            break;   
     }
+
+    oxygen = oxygenCandidates.front();
+    co2 = co2Candidates.front();
 
     // convert both to ints and multiply for final answer
     return static_cast<int>(oxygen.to_ulong()) * static_cast<int>(co2.to_ulong());
