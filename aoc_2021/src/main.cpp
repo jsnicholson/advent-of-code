@@ -24,7 +24,7 @@ int main(int argc, char* argv[]) {
     std::cout << banner << "\n\n" << std::endl;
 
     int day;
-    std::cout << "Which day are you opening?" << std::endl;
+    std::cout << "Which day are you opening? ";
     std::cin >> day;
 
     Utils::OpenDay(day);

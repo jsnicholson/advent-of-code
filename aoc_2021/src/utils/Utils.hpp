@@ -45,6 +45,12 @@ public:
         day->Run(inputfilename);
     }
 
+    template<typename T>
+    static void PrintList(const std::list<T> list) {
+        for (const auto& item : list)
+            std::cout << item << std::endl;
+    }
+
     static void OpenDay(int day) {
         switch (day) {
         case 1:

@@ -110,6 +110,7 @@
     <Text Include="resources\input_day2.txt">
       <Filter>Resource Files\input</Filter>
     </Text>
+    <Text Include="resources\input_day3.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\day1\Day1.h">
