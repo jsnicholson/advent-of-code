@@ -3,6 +3,7 @@
 #include <string>
 #include <fstream>
 #include <assert.h>
+#include <algorithm>
 
 class Utils {
 public:
@@ -15,4 +16,10 @@ public:
 
         assert(!data.empty());
 	}
+
+    static std::string ToLower(std::string str) {
+        std::string strLower = str;
+        std::transform(strLower.begin(), strLower.end(), strLower.begin(), ::tolower);
+        return strLower;
+    }
 };

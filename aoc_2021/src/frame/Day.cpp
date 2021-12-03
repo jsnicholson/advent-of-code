@@ -4,8 +4,8 @@
 
 #include "Utils.hpp"
 
-void Day::Run() {
-	Utils::ReadFile(GetInput(), data);
+void Day::Run(std::string inputfilename) {
+	Utils::ReadFile(inputfilename, data);
 	Parse();
 
 	std::cout << "Part1: " << std::to_string(Part1()) << std::endl;

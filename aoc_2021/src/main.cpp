@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "Days.hpp"
+#include "Utils.hpp"
 
 const char* banner = R"(
               _                 _            __    _____          _      
@@ -26,8 +27,12 @@ void RunDay() {
     std::string dayName = typeName.substr(typeName.find(" ") + 1);
 
     std::cout << "Opening " << dayName << "..." << std::endl;
+
     Day* day = new T();
-    day->Run();
+
+    std::string inputfilename = std::string("resources\\input_") + Utils::ToLower(dayName) + std::string(".txt");
+
+    day->Run(inputfilename);
 }
 
 void OpenDay(int day) {

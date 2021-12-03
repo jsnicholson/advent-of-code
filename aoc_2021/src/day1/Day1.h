@@ -16,7 +16,4 @@ private:
 
 private:
 	int HowManyIncreased(std::list<int> numbers);
-
-protected:
-	std::string GetInput() { return "resources\\input_day1.txt"; };
 };
