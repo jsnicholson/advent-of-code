@@ -4,17 +4,23 @@
 #include <fstream>
 #include <assert.h>
 #include <algorithm>
+#include <iomanip>
 
 class Utils {
 public:
-	static void ReadFile(std::string filename, std::list<std::string>& data) {
+	static bool ReadFile(std::string filename, std::list<std::string>& data) {
         data.clear();
         std::ifstream file(filename.c_str());
         std::string str;
         while (std::getline(file, str))
             data.push_back(str);
 
-        assert(!data.empty());
+        if (data.empty()) {
+            std::cout << "No data found at " << std::quoted(filename) << std::endl;
+            return false;
+        }
+
+        return true;
 	}
 
     static std::string ToLower(std::string str) {
