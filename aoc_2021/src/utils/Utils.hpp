@@ -40,7 +40,9 @@ public:
 
         Day* day = new T();
 
-        std::string inputfilename = std::string("resources\\input_") + Utils::ToLower(dayName) + std::string(".txt");
+        std::string inputfilename;
+        if((inputfilename = day->GetInput()).empty())
+            inputfilename = std::string("resources\\input_") + Utils::ToLower(dayName) + std::string(".txt");
 
         day->Run(inputfilename);
     }

@@ -12,6 +12,9 @@ private:
 	virtual int Part1();
 	virtual int Part2();
 
+public:
+	virtual std::string GetInput() { return ""; }
+
 protected:
 	std::list<std::string> data;
 };
