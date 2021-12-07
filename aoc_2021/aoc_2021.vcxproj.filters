@@ -111,6 +111,11 @@
       <Filter>Resource Files\input</Filter>
     </Text>
     <Text Include="resources\input_day3.txt" />
+    <Text Include="tasks\task_day1.txt" />
+    <Text Include="tasks\task_day2.txt" />
+    <Text Include="tasks\task_day3.txt" />
+    <Text Include="resources\input_day4.txt" />
+    <Text Include="tasks\task_day4.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\day1\Day1.h">

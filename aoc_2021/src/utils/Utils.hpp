@@ -5,6 +5,8 @@
 #include <assert.h>
 #include <algorithm>
 #include <iomanip>
+#include <sstream>
+#include <vector>
 
 #include "Days.hpp"
 
@@ -51,6 +53,13 @@ public:
     static void PrintList(const std::list<T> list) {
         for (const auto& item : list)
             std::cout << item << std::endl;
+    }
+
+    static void SplitStringIntoVector(std::vector<int>& vector, const std::string data, const char delimiter) {
+        std::istringstream iss(data);
+        std::string item;
+        while (std::getline(iss, item, delimiter))
+            vector.push_back(std::stoi(item));
     }
 
     static void OpenDay(int day) {
