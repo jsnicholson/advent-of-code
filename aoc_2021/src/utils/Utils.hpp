@@ -60,12 +60,12 @@ public:
         }
     }
 
-
-    static int SumBoard(std::vector<std::vector<std::pair<int, bool>>> all) {
+    static int SumUnmarkedBoard(std::vector<std::vector<std::pair<int, bool>>> all) {
         int sum = 0;
         for (const auto& line : all) {
             for (const auto& entry : line)
-                sum += entry.first;
+                if(!entry.second)
+                    sum += entry.first;
         }
         return sum;
     }
