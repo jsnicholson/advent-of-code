@@ -7,6 +7,7 @@
 #include <iomanip>
 #include <sstream>
 #include <vector>
+#include <numeric>
 
 #include "Days.hpp"
 
@@ -55,11 +56,45 @@ public:
             std::cout << item << std::endl;
     }
 
+    template<typename T>
+    static void PrintVector(const std::vector<T> vec) {
+        for (const auto& item : vec)
+            std::cout << item << " ";
+    }
+    template<typename T>
+    static void PrintVector(const std::vector<std::vector<T>> vec) {
+        for (const auto& item : vec) {
+            PrintVector(item);
+            std::cout << std::endl;
+        }
+    }
+
     static void SplitStringIntoVector(std::vector<int>& vector, const std::string data, const char delimiter) {
         std::istringstream iss(data);
         std::string item;
-        while (std::getline(iss, item, delimiter))
+        while (std::getline(iss, item, delimiter)) {
+            if (item.empty())
+                continue;
             vector.push_back(std::stoi(item));
+        }
+    }
+
+    template<typename T>
+    static std::vector<T> FlattenVector(std::vector<std::vector<T>>& all) {
+        std::vector<T> flat;
+        for (const auto& vector : all) {
+            flat.insert(std::end(flat), std::begin(vector), std::end(vector));
+        }
+        return flat;
+    }
+
+    static int SumBoard(std::vector<std::vector<std::pair<int, bool>>> all) {
+        int sum = 0;
+        for (const auto& line : all) {
+            for (const auto& entry : line)
+                sum += entry.first;
+        }
+        return sum;
     }
 
     static void OpenDay(int day) {

@@ -5,6 +5,9 @@
 
 class Day4 : public Day {
 
+	typedef std::pair<int, bool> boardValue;
+	typedef std::vector<std::vector<boardValue>> board;
+
 private:
 	void Parse() override;
 	int Part1() override;
@@ -12,11 +15,13 @@ private:
 
 private:
 	std::vector<int> vectorBingoNumbers;
-	std::vector<std::vector<int>> vectorWinningLines;
+	std::vector<board> vectorBoards;
+	size_t boardDimension;
 
 private:
-	void BoardToVerticalWinningLines(std::vector<std::vector<int>>& board);
+	void MarkNumbers(int num);
+	int CheckForWin(int num);
 
 public:
-	std::string GetInput() override { return std::string("resources\\day4_temp.txt"); }
+	//std::string GetInput() override { return std::string("resources\\day4_temp.txt"); }
 };

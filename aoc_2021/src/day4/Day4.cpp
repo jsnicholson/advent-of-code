@@ -1,56 +1,111 @@
 #include "Day4.h"
 
 #include <iostream>
+#include <iterator>
+#include <sstream>
 
-#include "Utils.hpp""
+#include "Utils.hpp"
 
 void Day4::Parse() {
-    std::vector<std::vector<int>> board;
-
+    board tempBoard;
     for (std::list<std::string>::iterator it = data.begin(); it != data.end(); it++) {
-
-        // line 1 is called numbers
         if (it == data.begin()) {
             Utils::SplitStringIntoVector(vectorBingoNumbers, *it, ',');
             continue;
         }
 
         if (it->empty()) {
-            board.clear();
             continue;
         } else {
-            std::vector<int> line;
-            Utils::SplitStringIntoVector(line, *it, ' ');
+            std::vector<std::pair<int, bool>> tempLine;
+            std::istringstream iss(*it);
+            std::string item;
+            while (std::getline(iss, item, ' ')) {
+                if (item.empty())
+                    continue;
+                tempLine.push_back(std::make_pair(std::stoi(item), false));
+            }
+            tempBoard.push_back(tempLine);
 
-            //push horizontal line
-            vectorWinningLines.push_back(line);
+            if (tempBoard.size() == tempBoard.front().size()) {
+                if (boardDimension < 1)
+                    boardDimension = tempBoard.size();
 
-            // save to board to get vertical lines later
-            board.push_back(line);
-
-            if (board.size() == board.front().size())
-                BoardToVerticalWinningLines(board);
-        }    
+                vectorBoards.push_back(tempBoard);
+                tempBoard.clear();
+            }
+        }
     }
 }
 
 int Day4::Part1() {
-    return -1;
+    int result = -1;
+    for (std::vector<int>::iterator it = vectorBingoNumbers.begin(); it != vectorBingoNumbers.end(); it++) {
+        MarkNumbers(*it);
+        if ((result = CheckForWin(*it)) != -1) {
+            std::cout << "Won on number:" << *it << std::endl;
+            break;
+        }
+    }
+    return result;
 }
 
 int Day4::Part2() {
     return -1;
 }
 
-void Day4::BoardToVerticalWinningLines(std::vector<std::vector<int>>& board) {
-    std::vector<int> tempWinningLine;
-    for (int i = 0; i < board.front().size(); i++) {
-        tempWinningLine.clear();
+void Day4::MarkNumbers(int num) {
+    for (int i = 0; i < vectorBoards.size(); i++) {
+        //for each board
+        board& board = vectorBoards[i];
+        for (auto& line : board) {
+            for (auto& item : line) {
+                if (item.first == num)
+                    item.second = true;
+            }
+        }
+    }
+}
 
-        for (const auto& line : board) {
-            tempWinningLine.push_back(line[i]);
+int Day4::CheckForWin(int num) {
+    bool win = false;
+    for (auto& board : vectorBoards) {
+        // check for horizontal
+        for (auto& line : board) {
+            int lineSum = 0;
+            bool win = false;
+            for (auto& entry : line) {
+                if (entry.second) {
+                    lineSum += entry.first;
+                    win = true;
+                } else {
+                    win = false;
+                    break;
+                }
+            }
+
+            if (win)
+                return (Utils::SumBoard(board) - lineSum) * num;
         }
 
-        vectorWinningLines.push_back(tempWinningLine);
+        // check for vertical
+        for (int col = 0; col < boardDimension; col++) {
+            int lineSum = 0;
+            bool win = false;
+            for (auto& line : board) {
+                auto entry = line[col];
+                if (entry.second) {
+                    lineSum += entry.first;
+                    win = true;
+                } else {
+                    win = false;
+                    break;
+                }
+            }
+
+            if (win)
+                return (Utils::SumBoard(board) - lineSum) * num;
+        }
     }
+    return -1;
 }
