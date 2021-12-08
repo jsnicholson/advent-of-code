@@ -69,12 +69,12 @@ void Day4::MarkNumbers(int num) {
 
 int Day4::CheckForWin(int num) {
     bool win = false;
-    for (auto& board : vectorBoards) {
+    for (const auto& board : vectorBoards) {
         // check for horizontal
-        for (auto& line : board) {
+        for (const auto& line : board) {
             int lineSum = 0;
             bool win = false;
-            for (auto& entry : line) {
+            for (const auto& entry : line) {
                 if (entry.second) {
                     lineSum += entry.first;
                     win = true;
@@ -84,16 +84,17 @@ int Day4::CheckForWin(int num) {
                 }
             }
 
-            if (win)
-                return (Utils::SumBoard(board) - lineSum) * num;
+            if (win) {
+                return Utils::SumUnmarkedBoard(board) * num;
+            }
         }
 
         // check for vertical
         for (int col = 0; col < boardDimension; col++) {
             int lineSum = 0;
             bool win = false;
-            for (auto& line : board) {
-                auto entry = line[col];
+            for (const auto& line : board) {
+                const auto& entry = line[col];
                 if (entry.second) {
                     lineSum += entry.first;
                     win = true;
@@ -103,8 +104,10 @@ int Day4::CheckForWin(int num) {
                 }
             }
 
-            if (win)
-                return (Utils::SumBoard(board) - lineSum) * num;
+            if (win) {
+
+                return Utils::SumUnmarkedBoard(board) * num;
+            }
         }
     }
     return -1;

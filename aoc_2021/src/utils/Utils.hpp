@@ -50,25 +50,6 @@ public:
         day->Run(inputfilename);
     }
 
-    template<typename T>
-    static void PrintList(const std::list<T> list) {
-        for (const auto& item : list)
-            std::cout << item << std::endl;
-    }
-
-    template<typename T>
-    static void PrintVector(const std::vector<T> vec) {
-        for (const auto& item : vec)
-            std::cout << item << " ";
-    }
-    template<typename T>
-    static void PrintVector(const std::vector<std::vector<T>> vec) {
-        for (const auto& item : vec) {
-            PrintVector(item);
-            std::cout << std::endl;
-        }
-    }
-
     static void SplitStringIntoVector(std::vector<int>& vector, const std::string data, const char delimiter) {
         std::istringstream iss(data);
         std::string item;
@@ -79,14 +60,6 @@ public:
         }
     }
 
-    template<typename T>
-    static std::vector<T> FlattenVector(std::vector<std::vector<T>>& all) {
-        std::vector<T> flat;
-        for (const auto& vector : all) {
-            flat.insert(std::end(flat), std::begin(vector), std::end(vector));
-        }
-        return flat;
-    }
 
     static int SumBoard(std::vector<std::vector<std::pair<int, bool>>> all) {
         int sum = 0;
