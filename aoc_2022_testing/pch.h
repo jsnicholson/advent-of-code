@@ -8,5 +8,7 @@
 #define PCH_H
 
 // add headers that you want to pre-compile here
+#define _SOLUTIONDIR std::string(_SOLUTIONDIR_RAW)
+#define _TARGETDIR std::string(_SOLUTIONDIR + "aoc_2022\\")
 
 #endif //PCH_H

@@ -4,7 +4,7 @@
 
 #include "Utils.hpp"
 
-void Day::Run(std::string inputfilename) {
+void Day::Run(const std::string inputfilename) {
 	if(!Utils::ReadFile(inputfilename, data)) return;
 	Parse();
 

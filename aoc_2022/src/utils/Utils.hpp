@@ -14,7 +14,7 @@
 
 class Utils {
 public:
-	static bool ReadFile(std::string filename, std::list<std::string>& data) {
+	static bool ReadFile(const std::string filename, std::list<std::string>& data) {
         data.clear();
         std::ifstream file(filename.c_str());
         std::string str;
@@ -35,6 +35,14 @@ public:
         return strLower;
     }
 
+    template<typename T>
+    static const std::string DayTypeToInputFilename() {
+        const std::string typeName = std::string(typeid(T).name());
+        const std::string dayName = typeName.substr(typeName.find(" ") + 1);
+        const std::string inputfilename = std::string("resources\\input_") + Utils::ToLower(dayName) + std::string(".txt");
+        return inputfilename;
+    }
+
     template <typename T>
     static void RunDay() {
         const std::string typeName = std::string(typeid(T).name());
@@ -45,8 +53,8 @@ public:
         Day* day = new T();
 
         std::string inputfilename;
-        if((inputfilename = day->GetInput()).empty())
-            inputfilename = std::string("resources\\input_") + Utils::ToLower(dayName) + std::string(".txt");
+        if ((inputfilename = day->GetInput()).empty())
+            inputfilename = DayTypeToInputFilename<T>();
 
         day->Run(inputfilename);
         delete day;
