@@ -172,6 +172,7 @@
   <ItemGroup>
     <Text Include="resources\input_day1.txt" />
     <Text Include="tasks\task_day1.txt" />
+    <Text Include="test_day1.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\day11\Day11.h" />

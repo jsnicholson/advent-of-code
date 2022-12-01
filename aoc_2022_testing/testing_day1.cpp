@@ -26,6 +26,18 @@ namespace aoc2022testing
 			Assert::AreEqual(calorieFirst, 26916);
 			Assert::AreEqual(calorieSecond, 47650);
 			Assert::AreEqual(calorieLast, 32326);
+
+			delete day;
+		}
+
+		TEST_METHOD(TestDay1GetsLargest)
+		{
+			Day1* day = new Day1();
+			const std::string inputfilename = _TARGETDIR + std::string("resources\\test_day1.txt");
+			day->Run(inputfilename);
+
+			Assert::AreEqual(day->Part1(), 174);
+
 			delete day;
 		}
 	};

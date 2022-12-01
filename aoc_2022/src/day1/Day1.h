@@ -7,7 +7,7 @@ class Day1 : public Day {
 public:
 	std::list<int> calories;
 
-private:
+public:
 	void Parse() override;
 	int Part1() override;
 	int Part2() override;
