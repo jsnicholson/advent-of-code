@@ -37,8 +37,8 @@ public:
 
     template <typename T>
     static void RunDay() {
-        std::string typeName = std::string(typeid(T).name());
-        std::string dayName = typeName.substr(typeName.find(" ") + 1);
+        const std::string typeName = std::string(typeid(T).name());
+        const std::string dayName = typeName.substr(typeName.find(" ") + 1);
 
         std::cout << "Opening " << dayName << "..." << std::endl;
 
@@ -52,7 +52,7 @@ public:
         delete day;
     }
 
-    static void OpenDay(int day) {
+    static void OpenDay(const size_t day) {
         switch (day) {
         case 1:
             RunDay<Day1>(); break;
