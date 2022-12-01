@@ -16,6 +16,9 @@
     <Filter Include="Resource Files\input">
       <UniqueIdentifier>{3b83cb73-bbdd-4d12-80d3-0609020557d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\task">
+      <UniqueIdentifier>{16fb6115-1bd9-4478-924b-9445f5eacd2d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\day1\Day1.cpp">
@@ -110,12 +113,24 @@
     <Text Include="resources\input_day2.txt">
       <Filter>Resource Files\input</Filter>
     </Text>
-    <Text Include="resources\input_day3.txt" />
-    <Text Include="tasks\task_day1.txt" />
-    <Text Include="tasks\task_day2.txt" />
-    <Text Include="tasks\task_day3.txt" />
-    <Text Include="resources\input_day4.txt" />
-    <Text Include="tasks\task_day4.txt" />
+    <Text Include="resources\input_day3.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\input_day4.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="tasks\task_day1.txt">
+      <Filter>Resource Files\task</Filter>
+    </Text>
+    <Text Include="tasks\task_day2.txt">
+      <Filter>Resource Files\task</Filter>
+    </Text>
+    <Text Include="tasks\task_day3.txt">
+      <Filter>Resource Files\task</Filter>
+    </Text>
+    <Text Include="tasks\task_day4.txt">
+      <Filter>Resource Files\task</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\day1\Day1.h">

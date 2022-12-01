@@ -8,6 +8,7 @@
 #include <sstream>
 #include <vector>
 #include <numeric>
+#include <iostream>
 
 #include "Days.hpp"
 
@@ -48,26 +49,7 @@ public:
             inputfilename = std::string("resources\\input_") + Utils::ToLower(dayName) + std::string(".txt");
 
         day->Run(inputfilename);
-    }
-
-    static void SplitStringIntoVector(std::vector<int>& vector, const std::string data, const char delimiter) {
-        std::istringstream iss(data);
-        std::string item;
-        while (std::getline(iss, item, delimiter)) {
-            if (item.empty())
-                continue;
-            vector.push_back(std::stoi(item));
-        }
-    }
-
-    static int SumUnmarkedBoard(std::vector<std::vector<std::pair<int, bool>>> all) {
-        int sum = 0;
-        for (const auto& line : all) {
-            for (const auto& entry : line)
-                if(!entry.second)
-                    sum += entry.first;
-        }
-        return sum;
+        delete day;
     }
 
     static void OpenDay(int day) {

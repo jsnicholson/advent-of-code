@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\input">
+      <UniqueIdentifier>{5270399f-1a0f-44c6-a5b1-895b6dfc9bfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\task">
+      <UniqueIdentifier>{582e4f3a-aa37-47a9-b7c9-33bcbad721e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\day1\Day1.cpp">
@@ -190,7 +196,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="resources\input_day1.txt" />
-    <Text Include="tasks\task_day1.txt" />
+    <Text Include="resources\input_day1.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="tasks\task_day1.txt">
+      <Filter>Resource Files\task</Filter>
+    </Text>
   </ItemGroup>
 </Project>
