@@ -11,8 +11,7 @@ namespace aoc2022testing
 
 	TEST_CLASS(TestingDay1)
 	{
-	public:
-		
+	public:	
 		TEST_METHOD(TestDay1Parse)
 		{
 			Day1* day = new Day1();

@@ -1,5 +1,7 @@
 #include "day1.h"
 
+#include <algorithm>
+
 void Day1::Parse() {
     int calorie = 0;
     for (std::list<std::string>::iterator it = data.begin(); it != data.end(); it++) {
@@ -16,9 +18,14 @@ void Day1::Parse() {
 }
 
 int Day1::Part1() {
-    return -1;
+    return *std::max_element(calories.begin(), calories.end());
 }
 
 int Day1::Part2() {
-    return -1;
+    calories.sort();
+    auto iterator = calories.end();
+    int count = 0;
+    for (int i = 0; i < 3; i++)
+        count += *--iterator;
+    return count;
 }
