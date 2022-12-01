@@ -9,7 +9,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace aoc2022testing
 {
 
-	TEST_CLASS(TestingDay1)
+	TEST_CLASS(TestDay1)
 	{
 	public:	
 		TEST_METHOD(TestDay1Parse)
