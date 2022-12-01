@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aoc_2021_testing", "aoc_202
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aoc_2022", "aoc_2022\aoc_2022.vcxproj", "{902768EE-70D6-4777-9FE9-4C73028340D3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aoc_2022_testing", "aoc_2022_testing\aoc_2022_testing.vcxproj", "{4F139743-7281-428E-98E2-9CC803358630}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{902768EE-70D6-4777-9FE9-4C73028340D3}.Release|x64.Build.0 = Release|x64
 		{902768EE-70D6-4777-9FE9-4C73028340D3}.Release|x86.ActiveCfg = Release|Win32
 		{902768EE-70D6-4777-9FE9-4C73028340D3}.Release|x86.Build.0 = Release|Win32
+		{4F139743-7281-428E-98E2-9CC803358630}.Debug|x64.ActiveCfg = Debug|x64
+		{4F139743-7281-428E-98E2-9CC803358630}.Debug|x64.Build.0 = Debug|x64
+		{4F139743-7281-428E-98E2-9CC803358630}.Debug|x86.ActiveCfg = Debug|Win32
+		{4F139743-7281-428E-98E2-9CC803358630}.Debug|x86.Build.0 = Debug|Win32
+		{4F139743-7281-428E-98E2-9CC803358630}.Release|x64.ActiveCfg = Release|x64
+		{4F139743-7281-428E-98E2-9CC803358630}.Release|x64.Build.0 = Release|x64
+		{4F139743-7281-428E-98E2-9CC803358630}.Release|x86.ActiveCfg = Release|Win32
+		{4F139743-7281-428E-98E2-9CC803358630}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
