@@ -13,4 +13,5 @@ public:
 
 public:
 	static int CalculateRoundScore(round round);
+	static char CalculateWhatToPlay(round round);
 };
