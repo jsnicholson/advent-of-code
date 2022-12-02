@@ -3,6 +3,33 @@
 #include <map>
 #include <algorithm>
 
+const std::map<char, char> mapCodeToRockPaperScissors{
+    {'A','R'},
+    {'B','P'},
+    {'C','S'},
+    {'X','R'},
+    {'Y','P'},
+    {'Z','S'}
+};
+
+const std::map<char, int> mapRockPaperScissorsToScore{
+    {'R',1},
+    {'P',2},
+    {'S',3}
+};
+
+const std::map<char, char> mapRockPaperScissorsToLosesTo{
+    {'R','P'},
+    {'P','S'},
+    {'S','R'}
+};
+
+const std::map<char, char> mapRockPaperScissorsToWinsAgainst{
+    {'R','S'},
+    {'P','R'},
+    {'S','P'}
+};
+
 void Day2::Parse() {
     for (std::list<std::string>::iterator it = data.begin(); it != data.end(); it++) {
         auto theyPlay = mapCodeToRockPaperScissors.at((*it)[0]);
@@ -34,33 +61,6 @@ int Day2::Part2() {
     return totalScore;
 }
 
-const std::map<char, char> mapCodeToRockPaperScissors{
-    {'A','R'},
-    {'B','P'},
-    {'C','S'},
-    {'X','R'},
-    {'Y','P'},
-    {'Z','S'}
-};
-
-const std::map<char, int> mapRockPaperScissorsToScore{
-    {'R',1},
-    {'P',2},
-    {'S',3}
-};
-
-const std::map<char, char> mapRockPaperScissorsToLosesTo{
-    {'R','P'},
-    {'P','S'},
-    {'S','R'}
-};
-
-const std::map<char, char> mapRockPaperScissorsToWinsAgainst{
-    {'R','S'},
-    {'P','R'},
-    {'S','P'}
-};
-
 int Day2::CalculateRoundScore(round round) {
     int base = mapRockPaperScissorsToScore.at(round.second);
 
@@ -91,6 +91,9 @@ char Day2::CalculateWhatToPlay(round round) {
         // calculate win
         case 'Z':
             return mapRockPaperScissorsToLosesTo.at(round.first);
+            break;
+        default:
+            return ' ';
             break;
     }
 }
