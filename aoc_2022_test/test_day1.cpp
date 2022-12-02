@@ -15,7 +15,7 @@ namespace aoc2022test
 		TEST_METHOD(TestDay1Parse) {
 			// setup
 			Day1* day = new Day1();
-			const std::string inputfilename = std::string("resources\\test_day1.txt");
+			const std::string inputfilename = _PROJECTDIR + std::string("resources\\test_day1.txt");
 			day->LoadFile(inputfilename);
 			day->Parse();
 
@@ -51,7 +51,7 @@ namespace aoc2022test
 		TEST_METHOD(TestDay1GetsLargest) {
 			// setup
 			Day1* day = new Day1();
-			const std::string inputfilename = std::string("resources\\test_day1.txt");
+			const std::string inputfilename = _PROJECTDIR + std::string("resources\\test_day1.txt");
 			day->Run(inputfilename);
 
 			// assert

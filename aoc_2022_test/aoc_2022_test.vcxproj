@@ -176,6 +176,10 @@
       <Project>{902768ee-70d6-4777-9fe9-4c73028340d3}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\test_day1.txt" />
+    <Text Include="resources\test_day2.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

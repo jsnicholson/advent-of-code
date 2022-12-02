@@ -23,8 +23,8 @@ namespace aoc2022test
 			auto roundLast = day->m_rounds.back();
 
 			// assert
-			Assert::IsTrue(roundFirst == std::make_pair('R','R'));
-			Assert::IsTrue(roundLast == std::make_pair('S', 'R'));
+			Assert::IsTrue(roundFirst == std::make_pair('A','X'));
+			Assert::IsTrue(roundLast == std::make_pair('C', 'X'));
 
 			// cleanup 
 			delete day;
