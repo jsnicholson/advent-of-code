@@ -11,5 +11,6 @@
 #define _SOLUTIONDIR std::string(_SOLUTIONDIR_RAW)
 #define _TARGET std::string("aoc_2022\\")
 #define _TARGETDIR std::string(_SOLUTIONDIR + _TARGET)
+#define _PROJECTDIR std::string(_PROJECTDIR_RAW)
 
 #endif //PCH_H

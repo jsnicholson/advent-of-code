@@ -5,7 +5,7 @@
 
 class Day1 : public Day {
 public:
-	std::vector<std::vector<int>> m_vecCaloriesPerElf;
+	std::vector<std::vector<int>> m_caloriesPerElf;
 
 public:
 	void Parse() override;

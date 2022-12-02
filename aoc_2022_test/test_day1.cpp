@@ -19,8 +19,8 @@ namespace aoc2022test
 			day->LoadFile(inputfilename);
 			day->Parse();
 
-			auto caloriesFirst = day->m_vecCaloriesPerElf.front();
-			auto caloriesLast = day->m_vecCaloriesPerElf.back();
+			auto caloriesFirst = day->m_caloriesPerElf.front();
+			auto caloriesLast = day->m_caloriesPerElf.back();
 
 			// assert
 			Assert::IsTrue(caloriesFirst == std::vector<int> { 20, 35, 14, 2 });
