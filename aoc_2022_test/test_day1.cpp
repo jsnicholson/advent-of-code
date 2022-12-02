@@ -12,18 +12,32 @@ namespace aoc2022test
 	TEST_CLASS(TestDay1)
 	{
 	public:	
-		TEST_METHOD(TestDay1Parse)
-		{
+		TEST_METHOD(TestDay1Parse) {
 			// setup
 			Day1* day = new Day1();
-			const std::string inputfilename = _TARGETDIR + Utils::DayTypeToInputFilename<Day1>();
+			const std::string inputfilename = std::string("resources\\test_day1.txt");
 			day->LoadFile(inputfilename);
 			day->Parse();
 
-			auto iterator = day->calories.begin();
+			auto caloriesFirst = day->m_vecCaloriesPerElf.front();
+			auto caloriesLast = day->m_vecCaloriesPerElf.back();
+
+			// assert
+			Assert::IsTrue(caloriesFirst == std::vector<int> { 20, 35, 14, 2 });
+			Assert::IsTrue(caloriesLast == std::vector<int> { 4, 2, 3 });
+		}
+
+		TEST_METHOD(TestDay1SumsCorrectly) {
+			// setup
+			Day1* day = new Day1();
+			const std::string inputfilename = _TARGETDIR + Utils::DayTypeToInputFilename<Day1>();
+			day->Run(inputfilename);
+
+			auto calories = day->SumEachElfsCalories();
+			auto iterator = calories.begin();
 			const int calorieFirst = *iterator;
 			const int calorieSecond = *++iterator;
-			const int calorieLast = day->calories.back();
+			const int calorieLast = calories.back();
 
 			// assert
 			Assert::AreEqual(calorieFirst, 26916);
@@ -34,11 +48,10 @@ namespace aoc2022test
 			delete day;
 		}
 
-		TEST_METHOD(TestDay1GetsLargest)
-		{
+		TEST_METHOD(TestDay1GetsLargest) {
 			// setup
 			Day1* day = new Day1();
-			const std::string inputfilename = _TARGETDIR + std::string("resources\\test_day1.txt");
+			const std::string inputfilename = std::string("resources\\test_day1.txt");
 			day->Run(inputfilename);
 
 			// assert
