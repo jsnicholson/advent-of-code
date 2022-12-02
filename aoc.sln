@@ -9,7 +9,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aoc_2021_testing", "aoc_202
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aoc_2022", "aoc_2022\aoc_2022.vcxproj", "{902768EE-70D6-4777-9FE9-4C73028340D3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aoc_2022_testing", "aoc_2022_testing\aoc_2022_testing.vcxproj", "{4F139743-7281-428E-98E2-9CC803358630}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aoc_2022_test", "aoc_2022_test\aoc_2022_test.vcxproj", "{4F139743-7281-428E-98E2-9CC803358630}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

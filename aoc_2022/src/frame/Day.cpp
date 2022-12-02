@@ -4,8 +4,12 @@
 
 #include "Utils.hpp"
 
+bool Day::LoadFile(const std::string inputfilename) {
+	return Utils::ReadFile(inputfilename, data);
+}
+
 void Day::Run(const std::string inputfilename) {
-	if(!Utils::ReadFile(inputfilename, data)) return;
+	if(!LoadFile(inputfilename)) return;
 	Parse();
 
 	std::cout << "Part1: " << std::to_string(Part1()) << std::endl;

@@ -5,6 +5,7 @@
 class Day {
 
 public:
+	bool LoadFile(const std::string inputfilename);
 	void Run(std::string inputfilename);
 
 private:

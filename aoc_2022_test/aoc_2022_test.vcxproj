@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <ProjectGuid>{4F139743-7281-428E-98E2-9CC803358630}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>aoc2022testing</RootNamespace>
+    <RootNamespace>aoc2022test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
     <ProjectName>aoc_2022_test</ProjectName>

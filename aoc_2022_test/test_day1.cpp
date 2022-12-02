@@ -6,7 +6,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 #include "Days.hpp"
 #include "Utils.hpp"
 
-namespace aoc2022testing
+namespace aoc2022test
 {
 
 	TEST_CLASS(TestDay1)
@@ -16,7 +16,9 @@ namespace aoc2022testing
 		{
 			Day1* day = new Day1();
 			const std::string inputfilename = _TARGETDIR + Utils::DayTypeToInputFilename<Day1>();
-			day->Run(inputfilename);
+			day->LoadFile(inputfilename);
+			day->Parse();
+			//day->Run(inputfilename);
 
 			auto iterator = day->calories.begin();
 			const int calorieFirst = *iterator;
