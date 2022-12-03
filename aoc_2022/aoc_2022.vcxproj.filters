@@ -205,5 +205,14 @@
     <Text Include="test_day1.txt">
       <Filter>Resource Files\input</Filter>
     </Text>
+    <Text Include="resources\input_day3.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="tasks\task_day2.txt">
+      <Filter>Resource Files\task</Filter>
+    </Text>
+    <Text Include="tasks\task_day3.txt">
+      <Filter>Resource Files\task</Filter>
+    </Text>
   </ItemGroup>
 </Project>
