@@ -18,9 +18,7 @@ void Day4::Parse() {
 int Day4::Part1() {
     int countHowManyRangesFullyContainTheOtherRangeInItsPair = 0;
     for (std::list<rangepair>::iterator it = m_pairsOfCleaningRanges.begin(); it != m_pairsOfCleaningRanges.end(); it++) {
-        rangepair rangepair = *it;
-        if ((rangepair.first.first <= rangepair.second.first && rangepair.first.second >= rangepair.second.second) ||
-            (rangepair.second.first <= rangepair.first.first && rangepair.second.second >= rangepair.first.second))
+        if (DoesRangeEntirelyContainTheOther((*it).first, (*it).second))
             countHowManyRangesFullyContainTheOtherRangeInItsPair++;
     }
     return countHowManyRangesFullyContainTheOtherRangeInItsPair;
@@ -29,12 +27,22 @@ int Day4::Part1() {
 int Day4::Part2() {
     int countHowManyRangesOverlap = 0;
     for (std::list<rangepair>::iterator it = m_pairsOfCleaningRanges.begin(); it != m_pairsOfCleaningRanges.end(); it++) {
-        rangepair rangepair = *it;
-        if ((rangepair.first.first >= rangepair.second.first && rangepair.first.first <= rangepair.second.second) ||
-            (rangepair.first.second >= rangepair.second.first && rangepair.first.second <= rangepair.second.second) ||
-            (rangepair.second.first >= rangepair.first.first && rangepair.second.first <= rangepair.first.second) ||
-            (rangepair.second.second >= rangepair.first.first && rangepair.second.second <= rangepair.first.second))
+        if (DoRangesOverlap((*it).first, (*it).second))
             countHowManyRangesOverlap++;
     }
     return countHowManyRangesOverlap;
+}
+
+bool Day4::DoRangesOverlap(range range1, range range2) {
+    if ((range1.first <= range2.first && range2.first <= range1.second) ||
+        (range2.first <= range1.first && range1.first <= range2.second))
+        return true;
+    return false;
+}
+
+bool Day4::DoesRangeEntirelyContainTheOther(range range1, range range2) {
+    if ((range1.first <= range2.first && range1.second >= range2.second) ||
+        (range2.first <= range1.first && range2.second >= range1.second))
+        return true;
+    return false;
 }

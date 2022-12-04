@@ -11,4 +11,8 @@ private:
 	void Parse() override;
 	int Part1() override;
 	int Part2() override;
+
+private:
+	bool DoesRangeEntirelyContainTheOther(range, range);
+	bool DoRangesOverlap(range, range);
 };
