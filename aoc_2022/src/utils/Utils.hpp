@@ -14,7 +14,7 @@
 
 class Utils {
 public:
-	static bool ReadFile(const std::string filename, std::list<std::string>& data) {
+	static bool ReadFile(const std::string filename, std::vector<std::string>& data) {
         data.clear();
         std::ifstream file(filename.c_str());
         std::string str;

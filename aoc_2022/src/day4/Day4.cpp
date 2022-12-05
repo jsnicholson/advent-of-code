@@ -2,7 +2,7 @@
 #include "Utils.hpp"
 
 void Day4::Parse() {
-    for (std::list<std::string>::iterator it = data.begin(); it != data.end(); it++) {
+    for (std::vector<std::string>::iterator it = data.begin(); it != data.end(); it++) {
         std::string line = *it;
         int indexOfPairDelimiter = line.find(',');
         std::string rawFirstRange = line.substr(0, indexOfPairDelimiter);

@@ -1,6 +1,8 @@
 #pragma once
 #include "Day.h"
 
+#include <list>
+
 class Day4 : public Day {
 public:
 	typedef std::pair<int, int> range;

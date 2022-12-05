@@ -31,7 +31,7 @@ const std::map<char, char> mapRockPaperScissorsToWinsAgainst{
 };
 
 void Day2::Parse() {
-    for (std::list<std::string>::iterator it = data.begin(); it != data.end(); it++) {
+    for (std::vector<std::string>::iterator it = data.begin(); it != data.end(); it++) {
         auto theyPlay = mapCodeToRockPaperScissors.at((*it)[0]);
         auto youPlay = mapCodeToRockPaperScissors.at((*it)[2]);
         auto round = std::make_pair((*it)[0], (*it)[2]);

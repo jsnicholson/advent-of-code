@@ -6,7 +6,7 @@
 void Day1::Parse() {
     // parse input to a vector<int> for each elf (each set of calories)
     std::vector<int> calories = {};
-    for (std::list<std::string>::iterator it = data.begin(); it != data.end(); it++) {
+    for (std::vector<std::string>::iterator it = data.begin(); it != data.end(); it++) {
         if (it->empty()) {
             m_caloriesPerElf.push_back(calories);
             calories.clear();

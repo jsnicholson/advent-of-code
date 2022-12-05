@@ -1,6 +1,6 @@
 #pragma once
-#include <list>
 #include <string>
+#include <vector>
 
 class Day {
 
@@ -17,5 +17,5 @@ public:
 	virtual std::string GetInput() { return ""; }
 
 protected:
-	std::list<std::string> data;
+	std::vector<std::string> data;
 };

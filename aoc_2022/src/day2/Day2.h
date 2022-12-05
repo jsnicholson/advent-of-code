@@ -1,6 +1,8 @@
 #pragma once
 #include "Day.h"
 
+#include <list>
+
 class Day2 : public Day {
 public:
 	typedef std::pair<char, char> round;

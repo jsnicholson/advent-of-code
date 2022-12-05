@@ -4,7 +4,7 @@
 #include <algorithm>
 
 void Day3::Parse() {
-    for (std::list<std::string>::iterator it = data.begin(); it != data.end(); it++) {
+    for (std::vector<std::string>::iterator it = data.begin(); it != data.end(); it++) {
         m_rucksacks.push_back(*it);
     }
 }
