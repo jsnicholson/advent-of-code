@@ -39,7 +39,7 @@ void Day2::Parse() {
     }
 }
 
-int Day2::Part1() {
+std::string Day2::Part1() {
     int totalScore = 0;
     for (std::list<round>::iterator it = m_rounds.begin(); it != m_rounds.end(); it++) {
         round round = *it;
@@ -47,10 +47,10 @@ int Day2::Part1() {
         round.second = mapCodeToRockPaperScissors.at((*it).second);
         totalScore += CalculateRoundScore(round);
     }
-    return totalScore;
+    return std::to_string(totalScore);
 }
 
-int Day2::Part2() {
+std::string Day2::Part2() {
     int totalScore = 0;
     for (std::list<round>::iterator it = m_rounds.begin(); it != m_rounds.end(); it++) {
         round round = *it;
@@ -58,7 +58,7 @@ int Day2::Part2() {
         round.second = CalculateWhatToPlay(round);
         totalScore += CalculateRoundScore(round);
     }
-    return totalScore;
+    return std::to_string(totalScore);
 }
 
 int Day2::CalculateRoundScore(round round) {

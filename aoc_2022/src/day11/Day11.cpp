@@ -7,10 +7,10 @@
 void Day11::Parse() {
 }
 
-int Day11::Part1() {
-    return -1;
+std::string Day11::Part1() {
+    return std::string("unimplemented");
 }
 
-int Day11::Part2() {
-    return -1;
+std::string Day11::Part2() {
+    return std::string("unimplemented");
 }

@@ -6,6 +6,6 @@ class Day7 : public Day {
 
 private:
 	void Parse() override;
-	int Part1() override;
-	int Part2() override;
+	std::string Part1() override;
+	std::string Part2() override;
 };

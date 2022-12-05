@@ -9,7 +9,7 @@ void Day3::Parse() {
     }
 }
 
-int Day3::Part1() {
+std::string Day3::Part1() {
     int sum = 0;
     for (std::list<std::string>::iterator it = m_rucksacks.begin(); it != m_rucksacks.end(); it++) {
         auto rucksack = *it;
@@ -17,10 +17,10 @@ int Day3::Part1() {
         int priority = CalculateItemPriority(repeatedItem);
         sum += priority;
     }
-    return sum;
+    return std::to_string(sum);
 }
 
-int Day3::Part2() {
+std::string Day3::Part2() {
     int sum = 0;
     for (std::list<rucksack>::iterator it = m_rucksacks.begin(); it != m_rucksacks.end(); std::advance(it, 3)) {
         rucksack firstRucksack = *it;
@@ -36,7 +36,7 @@ int Day3::Part2() {
         if (intersection.size() > 1) {
             std::cerr << "more than one badge, something went wrong" << std::endl;
             EXIT_FAILURE;
-            return -1;
+            return NULL;
         }
 
         char badge = intersection.front();
@@ -44,7 +44,7 @@ int Day3::Part2() {
         sum += priority;
     }
 
-    return sum;
+    return std::to_string(sum);
 }
 
 Day3::splitRucksack Day3::SplitRucksackIntoTwoEvenCompartments(rucksack wholeRucksack) {

@@ -19,12 +19,13 @@ void Day1::Parse() {
         m_caloriesPerElf.push_back(calories);
 }
 
-int Day1::Part1() {
+std::string Day1::Part1() {
     auto calories = SumEachElfsCalories();
-    return *std::max_element(calories.begin(), calories.end());
+    int result = *std::max_element(calories.begin(), calories.end());
+    return std::to_string(result);
 }
 
-int Day1::Part2() {
+std::string Day1::Part2() {
     auto calories = SumEachElfsCalories();
     std::sort(calories.begin(), calories.end());
 
@@ -34,7 +35,7 @@ int Day1::Part2() {
     for (int i = 0; i < 3; i++)
         count += *--iterator;
 
-    return count;
+    return std::to_string(count);
 }
 
 std::vector<int> Day1::SumEachElfsCalories() { 

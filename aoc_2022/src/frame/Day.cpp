@@ -12,14 +12,14 @@ void Day::Run(const std::string inputfilename) {
 	if(!LoadFile(inputfilename)) return;
 	Parse();
 
-	std::cout << "Part1: " << std::to_string(Part1()) << std::endl;
-	std::cout << "Part2: " << std::to_string(Part2()) << std::endl;
+	std::cout << "Part1: " << Part1() << std::endl;
+	std::cout << "Part2: " << Part2() << std::endl;
 }
 
-int Day::Part1() {
-    return -1;
+std::string Day::Part1() {
+    return std::string("unimplemented");
 }
 
-int Day::Part2() {
-    return -1;
+std::string Day::Part2() {
+    return std::string("unimplemented");
 }

@@ -5,10 +5,10 @@
 void DayTemplate::Parse() {
 }
 
-int DayTemplate::Part1() {
-    return -1;
+std::string DayTemplate::Part1() {
+    return std::string("unimplemented");
 }
 
-int DayTemplate::Part2() {
-    return -1;
+std::string DayTemplate::Part2() {
+    return std::string("unimplemented");
 }

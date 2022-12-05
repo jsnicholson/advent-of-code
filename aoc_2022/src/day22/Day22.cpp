@@ -5,10 +5,10 @@
 void Day22::Parse() {
 }
 
-int Day22::Part1() {
-    return -1;
+std::string Day22::Part1() {
+    return std::string("unimplemented");
 }
 
-int Day22::Part2() {
-    return -1;
+std::string Day22::Part2() {
+    return std::string("unimplemented");
 }

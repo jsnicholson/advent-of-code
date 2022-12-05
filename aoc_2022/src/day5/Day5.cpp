@@ -52,7 +52,7 @@ void Day5::Parse() {
     }
 }
 
-int Day5::Part1() {
+std::string Day5::Part1() {
     std::vector<cratestack> cratestacks = m_cratestacks;
     for (std::vector<instruction>::iterator it = m_instructions.begin(); it != m_instructions.end(); it++) {
         instruction instruction = *it;
@@ -71,10 +71,10 @@ int Day5::Part1() {
         result+=(cratestacks[i].top());
     }
 
-    return -1;
+    return result;
 }
 
-int Day5::Part2() {
+std::string Day5::Part2() {
     std::vector<cratestack> cratestacks = m_cratestacks;
     for (std::vector<instruction>::iterator it = m_instructions.begin(); it != m_instructions.end(); it++) {
         instruction instruction = *it;
@@ -101,7 +101,7 @@ int Day5::Part2() {
             result += (cratestacks[i].top());
     }
 
-    return -1;
+    return result;
 }
 
 std::vector<std::string> Day5::Split(std::string string, std::string delimiter) {

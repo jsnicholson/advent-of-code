@@ -15,22 +15,22 @@ void Day4::Parse() {
     }
 }
 
-int Day4::Part1() {
+std::string Day4::Part1() {
     int countHowManyRangesFullyContainTheOtherRangeInItsPair = 0;
     for (std::list<rangepair>::iterator it = m_pairsOfCleaningRanges.begin(); it != m_pairsOfCleaningRanges.end(); it++) {
         if (DoesRangeEntirelyContainTheOther((*it).first, (*it).second))
             countHowManyRangesFullyContainTheOtherRangeInItsPair++;
     }
-    return countHowManyRangesFullyContainTheOtherRangeInItsPair;
+    return std::to_string(countHowManyRangesFullyContainTheOtherRangeInItsPair);
 }
 
-int Day4::Part2() {
+std::string Day4::Part2() {
     int countHowManyRangesOverlap = 0;
     for (std::list<rangepair>::iterator it = m_pairsOfCleaningRanges.begin(); it != m_pairsOfCleaningRanges.end(); it++) {
         if (DoRangesOverlap((*it).first, (*it).second))
             countHowManyRangesOverlap++;
     }
-    return countHowManyRangesOverlap;
+    return std::to_string(countHowManyRangesOverlap);
 }
 
 bool Day4::DoRangesOverlap(range range1, range range2) {

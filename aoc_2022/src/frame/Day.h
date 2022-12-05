@@ -10,8 +10,8 @@ public:
 
 private:
 	virtual void Parse() {};
-	virtual int Part1();
-	virtual int Part2();
+	virtual std::string Part1();
+	virtual std::string Part2();
 
 public:
 	virtual std::string GetInput() { return ""; }

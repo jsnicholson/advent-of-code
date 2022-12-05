@@ -15,8 +15,8 @@ public:
 
 private:
 	void Parse() override;
-	int Part1() override;
-	int Part2() override;
+	std::string Part1() override;
+	std::string Part2() override;
 
 public:
 	std::vector<std::string> Split(std::string string, std::string delimiter);
