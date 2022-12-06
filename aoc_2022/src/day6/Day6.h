@@ -12,6 +12,6 @@ private:
 	std::string Part2() override;
 
 public:
-	bool StringHasNoDuplicates(std::string);
+	bool StringHasDuplicates(std::string);
 	int FindFirstUniqueStringOfLengthN(std::string string, int length);
 };

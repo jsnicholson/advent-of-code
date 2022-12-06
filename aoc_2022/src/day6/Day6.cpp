@@ -16,12 +16,12 @@ std::string Day6::Part2() {
     return std::to_string(FindFirstUniqueStringOfLengthN(m_signal, 14));
 }
 
-bool Day6::StringHasNoDuplicates(std::string string) {
+bool Day6::StringHasDuplicates(std::string string) {
     std::set<char> check_uniq;
     for (unsigned long int i = 0; i < string.length(); ++i)
         if (!check_uniq.insert(string[i]).second)
-            return false; // Duplicated char found
-    return true; // No duplicated char found
+            return true; // Duplicated char found
+    return false; // No duplicated char found
 }
 
 int Day6::FindFirstUniqueStringOfLengthN(std::string string, int length) {
@@ -33,7 +33,7 @@ int Day6::FindFirstUniqueStringOfLengthN(std::string string, int length) {
             buffer.erase(0, 1);
         }
         if (buffer.length() == length) {
-            if (StringHasNoDuplicates(buffer)) {
+            if (!StringHasDuplicates(buffer)) {
                 indexOfUniqueString = abs(std::distance(it, string.begin())) + 1;
                 break;
             }
