@@ -172,6 +172,7 @@
   <ItemGroup>
     <Text Include="resources\input_day1.txt" />
     <Text Include="resources\input_day3.txt" />
+    <Text Include="resources\input_day6.txt" />
     <Text Include="tasks\task_day1.txt" />
     <Text Include="tasks\task_day2.txt" />
     <Text Include="tasks\task_day3.txt" />
