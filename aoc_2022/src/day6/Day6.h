@@ -13,4 +13,5 @@ private:
 
 public:
 	bool StringHasNoDuplicates(std::string);
+	int FindFirstUniqueStringOfLengthN(std::string string, int length);
 };
