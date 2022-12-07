@@ -46,6 +46,7 @@ private:
 	std::string Part1() override;
 	std::string Part2() override;
 
+	void ProcessAllCommands();
 	void ProcessCdCommand(TreeNode*&, std::string location);
 	void ProcessLsCommand(TreeNode&, output);
 };
