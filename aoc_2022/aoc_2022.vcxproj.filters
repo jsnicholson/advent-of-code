@@ -214,5 +214,8 @@
     <Text Include="resources\input_day6.txt">
       <Filter>Resource Files\input</Filter>
     </Text>
+    <Text Include="resources\input_day7.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
   </ItemGroup>
 </Project>

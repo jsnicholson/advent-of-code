@@ -116,4 +116,30 @@ public:
             std::cout << "That day isnt in the advent!" << std::endl;
         }
     }
+
+    static std::vector<std::string> Split(std::string string, std::string delimiter) {
+        std::vector<std::string> splits{};
+        size_t pos = 0;
+        std::string token;
+        while ((pos = string.find(delimiter)) != std::string::npos) {
+            token = string.substr(0, pos);
+            splits.push_back(token);
+            string.erase(0, pos + delimiter.length());
+        }
+        splits.push_back(string);
+        return splits;
+    }
+
+    static std::vector<std::string> Split(std::string string, char delimiter) {
+        std::vector<std::string> splits{};
+        size_t pos = 0;
+        std::string token;
+        while ((pos = string.find(delimiter)) != std::string::npos) {
+            token = string.substr(0, pos);
+            splits.push_back(token);
+            string.erase(0, pos + 1);
+        }
+        splits.push_back(string);
+        return splits;
+    }
 };
