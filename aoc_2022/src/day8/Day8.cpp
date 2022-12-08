@@ -61,7 +61,9 @@ void Day8::CalculateVisibilityFromLeft(const std::vector<std::vector<int>>& tree
 int Day8::CalculateScenicScore(const std::vector<std::vector<int>>& trees, std::pair<int,int> tree) {
     const size_t height = trees[tree.first][tree.second];
     const std::vector<std::pair<int, int>> directions{ {0,-1},{0,1},{-1,0},{1,0} };
-    const std::pair<int, int> minCoord = std::make_pair(0,0), maxCoord = std::make_pair(trees.size() - 1, trees.size() - 1);
+    // without static cast this throws potential data loss warnings
+    int gridSize = static_cast<int>(trees.size());
+    const std::pair<int, int> minCoord = std::make_pair(0,0), maxCoord = std::make_pair(gridSize - 1, gridSize - 1);
 
     // needs to be 1 so that it can be multiplied up
     int totalScenicScore = 1;
