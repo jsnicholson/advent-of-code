@@ -3,10 +3,10 @@
 #include <iostream>
 
 void Day8::Parse() {
-    for (std::vector<std::string>::iterator it = data.begin(); it != data.end(); it++) {
-        std::string line = *it;
+    for (std::vector<std::string>::const_iterator it = data.begin(); it != data.end(); it++) {
+        const std::string line = *it;
         std::vector<int> row{};
-        for (std::string::iterator stringIt = line.begin(); stringIt != line.end(); stringIt++)
+        for (std::string::const_iterator stringIt = line.begin(); stringIt != line.end(); stringIt++)
             row.push_back(*stringIt - '0');
         m_trees.push_back(row);
     }
@@ -15,17 +15,17 @@ void Day8::Parse() {
 std::string Day8::Part1() {
     std::vector<std::vector<int>> trees = m_trees;
     // have to do int instead of bool as std::vector<bool> is weird af (https://stackoverflow.com/a/63477526)
-    std::vector<std::vector<int>> whichTreesVisibleFromOutsideGrid(trees.size(), std::vector<int>(trees.size(), false));
+    std::vector<std::vector<int>> whichTreesVisibleFromOutsideGrid(trees.size(), std::vector<int>(trees.size(), 0));
 
-    for (int direction = 0; direction < 4; direction++) {
+    for (size_t direction = 0; direction < 4; direction++) {
         CalculateVisibilityFromLeft(trees, whichTreesVisibleFromOutsideGrid);
         Rotate(trees);
         Rotate(whichTreesVisibleFromOutsideGrid);
     }
     
-    int count = 0;
-    for (int row = 0; row < whichTreesVisibleFromOutsideGrid.size(); row++) {
-        count += std::count(whichTreesVisibleFromOutsideGrid[row].begin(), whichTreesVisibleFromOutsideGrid[row].end(), true);
+    size_t count = 0;
+    for (size_t row = 0; row < whichTreesVisibleFromOutsideGrid.size(); row++) {
+        count += std::count(whichTreesVisibleFromOutsideGrid[row].begin(), whichTreesVisibleFromOutsideGrid[row].end(), 1);
     }
 
     return std::to_string(count);
@@ -46,12 +46,12 @@ std::string Day8::Part2() {
 }
 
 void Day8::CalculateVisibilityFromLeft(const std::vector<std::vector<int>>& trees, std::vector<std::vector<int>>& visibility) {
-    int gridSize = trees.size();
+    const size_t gridSize = trees.size();
     for (int row = 0; row < gridSize; row++) {
         int currentMax = -1;
         for (int column = 0; column < gridSize; column++) {
             if (trees[row][column] > currentMax && !visibility[row][column]) {
-                visibility[row][column] = true;
+                visibility[row][column] = 1;
             }
             currentMax = std::max(currentMax, trees[row][column]);
         }
@@ -59,9 +59,9 @@ void Day8::CalculateVisibilityFromLeft(const std::vector<std::vector<int>>& tree
 }
 
 int Day8::CalculateScenicScore(const std::vector<std::vector<int>>& trees, std::pair<int,int> tree) {
-    int height = trees[tree.first][tree.second];
-    std::vector<std::pair<int, int>> directions{ {0,-1},{0,1},{-1,0},{1,0} };
-    std::pair<int, int> minCoord(0, 0), maxCoord(trees.size() - 1, trees.size() - 1);
+    const size_t height = trees[tree.first][tree.second];
+    const std::vector<std::pair<int, int>> directions{ {0,-1},{0,1},{-1,0},{1,0} };
+    const std::pair<int, int> minCoord = std::make_pair(0,0), maxCoord = std::make_pair(trees.size() - 1, trees.size() - 1);
 
     // needs to be 1 so that it can be multiplied up
     int totalScenicScore = 1;
@@ -90,7 +90,7 @@ void Day8::Rotate(std::vector<std::vector<int>>& matrix) {
     }
 }
 
-bool Day8::PairInRange(std::pair<int, int> min, std::pair<int, int> max, std::pair<int, int> value) {
+bool Day8::PairInRange(const std::pair<int, int> min, const std::pair<int, int> max, const std::pair<int, int> value) {
     return (value.first >= min.first && value.first <= max.first) &&
         (value.second >= min.second && value.second <= max.second);
 }
@@ -99,7 +99,7 @@ std::pair<int,int> Day8::GetStartingCoord(const std::pair<int, int> coord, const
     return std::make_pair(coord.first + direction.first, coord.second + direction.second);
 }
 
-void Day8::AdvanceCoordInDirection(std::pair<int, int>& coord, std::pair<int, int> direction) {
+void Day8::AdvanceCoordInDirection(std::pair<int, int>& coord, const std::pair<int, int> direction) {
     coord.first += direction.first;
     coord.second += direction.second;
 }
