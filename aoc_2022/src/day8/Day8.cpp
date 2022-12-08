@@ -67,17 +67,14 @@ int Day8::CalculateScenicScore(const std::vector<std::vector<int>>& trees, std::
     int totalScenicScore = 1;
     for (const auto& direction : directions) {
         int directionScenicScore = 0;
-        // begin 1 in direction of tree we are checking
-        std::pair<int, int> coord = std::make_pair(tree.first+direction.first,tree.second+direction.second);
+        auto coord = GetStartingCoord(tree, direction);
         while (PairInRange(minCoord, maxCoord, coord)) {
             directionScenicScore++;
             // break if we hit something taller
             if (trees[coord.first][coord.second] >= height)
                 break;
 
-            // advance in direction
-            coord.first += direction.first;
-            coord.second += direction.second;
+            AdvanceCoordInDirection(coord, direction);
         }
         totalScenicScore *= directionScenicScore;
     }
@@ -96,4 +93,13 @@ void Day8::Rotate(std::vector<std::vector<int>>& matrix) {
 bool Day8::PairInRange(std::pair<int, int> min, std::pair<int, int> max, std::pair<int, int> value) {
     return (value.first >= min.first && value.first <= max.first) &&
         (value.second >= min.second && value.second <= max.second);
+}
+
+std::pair<int,int> Day8::GetStartingCoord(const std::pair<int, int> coord, const std::pair<int, int> direction) {
+    return std::make_pair(coord.first + direction.first, coord.second + direction.second);
+}
+
+void Day8::AdvanceCoordInDirection(std::pair<int, int>& coord, std::pair<int, int> direction) {
+    coord.first += direction.first;
+    coord.second += direction.second;
 }

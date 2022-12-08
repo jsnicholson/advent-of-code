@@ -19,4 +19,6 @@ public:
 	void Rotate(std::vector<std::vector<int>>& matrix);
 	int CalculateScenicScore(const std::vector<std::vector<int>>& trees, std::pair<int,int> tree);
 	bool PairInRange(std::pair<int, int> min, std::pair<int, int> max, std::pair<int, int> value);
+	std::pair<int,int> GetStartingCoord(const std::pair<int, int> coord, const std::pair<int,int> direction);
+	void AdvanceCoordInDirection(std::pair<int, int>& coord, std::pair<int, int> direction);
 };
