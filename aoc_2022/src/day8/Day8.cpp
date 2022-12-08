@@ -61,16 +61,21 @@ void Day8::CalculateVisibilityFromLeft(const std::vector<std::vector<int>>& tree
 int Day8::CalculateScenicScore(const std::vector<std::vector<int>>& trees, std::pair<int,int> tree) {
     int height = trees[tree.first][tree.second];
     std::vector<std::pair<int, int>> directions{ {0,-1},{0,1},{-1,0},{1,0} };
-    std::pair<int, int> minCoord(0, 0);
-    std::pair<int, int> maxCoord(trees.size() - 1, trees.size() - 1);
+    std::pair<int, int> minCoord(0, 0), maxCoord(trees.size() - 1, trees.size() - 1);
+
+    // needs to be 1 so that it can be multiplied up
     int totalScenicScore = 1;
     for (const auto& direction : directions) {
         int directionScenicScore = 0;
+        // begin 1 in direction of tree we are checking
         std::pair<int, int> coord = std::make_pair(tree.first+direction.first,tree.second+direction.second);
         while (PairInRange(minCoord, maxCoord, coord)) {
             directionScenicScore++;
+            // break if we hit something taller
             if (trees[coord.first][coord.second] >= height)
                 break;
+
+            // advance in direction
             coord.first += direction.first;
             coord.second += direction.second;
         }
