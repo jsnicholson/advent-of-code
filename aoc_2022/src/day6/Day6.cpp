@@ -24,7 +24,7 @@ bool Day6::StringHasDuplicates(std::string string) {
 }
 
 int Day6::FindFirstUniqueStringOfLengthN(std::string string, int length) {
-    int indexOfUniqueString = 0;
+    size_t indexOfUniqueString = 0;
     std::string buffer;
     for (std::string::iterator it = string.begin(); it != string.end(); it++) {
         buffer.push_back(*it);
@@ -38,5 +38,5 @@ int Day6::FindFirstUniqueStringOfLengthN(std::string string, int length) {
             }
         }
     }
-    return indexOfUniqueString;
+    return static_cast<int>(indexOfUniqueString);
 }

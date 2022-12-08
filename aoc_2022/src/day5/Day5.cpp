@@ -5,14 +5,14 @@
 #include <iostream>
 
 void Day5::Parse() {
-    int indexCrateDefinitionLine = 0;
+    size_t indexCrateDefinitionLine = 0;
     std::vector<int> crateStackPositions{};
 
     // find the line that defines stacks, and check their position
-    for (std::vector<std::string>::iterator it = data.begin(); it != data.end(); it++) {
+    for (std::vector<std::string>::const_iterator it = data.begin(); it != data.end(); it++) {
         std::string line = *it;
         if (line.find('[') == std::string::npos) {
-            indexCrateDefinitionLine = abs(std::distance(it, data.begin()));
+            indexCrateDefinitionLine = abs(std::distance(it, data.cbegin()));
             for (int i = 0; i < line.length(); i++) {
                 char c = line[i];
                 if (c != ' ') {
@@ -87,8 +87,8 @@ std::string Day5::Part2() {
                 tempCrateStack.push(crate);
             }
         }
-        const int size = tempCrateStack.size();
-        for (int i = 0; i < size; i++) {
+        const size_t size = tempCrateStack.size();
+        for (size_t i = 0; i < size; i++) {
             auto crate = tempCrateStack.top();
             tempCrateStack.pop();
             cratestacks[to].push(crate);

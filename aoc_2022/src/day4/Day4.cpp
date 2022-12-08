@@ -4,12 +4,12 @@
 void Day4::Parse() {
     for (std::vector<std::string>::iterator it = data.begin(); it != data.end(); it++) {
         std::string line = *it;
-        int indexOfPairDelimiter = line.find(',');
+        size_t indexOfPairDelimiter = line.find(',');
         std::string rawFirstRange = line.substr(0, indexOfPairDelimiter);
         std::string rawSecondRange = line.substr(indexOfPairDelimiter+1);
-        int indexOfFirstRangeDelimiter = rawFirstRange.find('-');
+        size_t indexOfFirstRangeDelimiter = rawFirstRange.find('-');
         range firstRange = std::make_pair(std::stoi(rawFirstRange.substr(0, indexOfFirstRangeDelimiter)), std::stoi(rawFirstRange.substr(indexOfFirstRangeDelimiter+1))); 
-        int indexOfSecondRangeDelimiter = rawSecondRange.find('-');
+        size_t indexOfSecondRangeDelimiter = rawSecondRange.find('-');
         range secondRange = std::make_pair(std::stoi(rawSecondRange.substr(0, indexOfSecondRangeDelimiter)), std::stoi(rawSecondRange.substr(indexOfSecondRangeDelimiter+1)));
         m_pairsOfCleaningRanges.push_back(std::make_pair(firstRange, secondRange));
     }
