@@ -55,7 +55,7 @@ namespace aoc2022test
 			day->Run(inputfilename);
 
 			// assert
-			Assert::AreEqual(day->Part1(), 174);
+			Assert::IsTrue(day->Part1()._Equal(std::to_string(174)));
 
 			// cleanup
 			delete day;
