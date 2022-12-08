@@ -159,6 +159,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\test_day10.cpp" />
+    <ClCompile Include="src\test_day11.cpp" />
+    <ClCompile Include="src\test_day12.cpp" />
+    <ClCompile Include="src\test_day13.cpp" />
+    <ClCompile Include="src\test_day14.cpp" />
+    <ClCompile Include="src\test_day15.cpp" />
+    <ClCompile Include="src\test_day16.cpp" />
+    <ClCompile Include="src\test_day17.cpp" />
+    <ClCompile Include="src\test_day18.cpp" />
+    <ClCompile Include="src\test_day19.cpp" />
     <ClCompile Include="src\test_day2.cpp" />
     <ClCompile Include="src\test_day1.cpp" />
     <ClCompile Include="src\pch.cpp">
@@ -167,7 +177,19 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="test_day3.cpp" />
+    <ClCompile Include="src\test_day20.cpp" />
+    <ClCompile Include="src\test_day21.cpp" />
+    <ClCompile Include="src\test_day22.cpp" />
+    <ClCompile Include="src\test_day23.cpp" />
+    <ClCompile Include="src\test_day24.cpp" />
+    <ClCompile Include="src\test_day25.cpp" />
+    <ClCompile Include="src\test_day3.cpp" />
+    <ClCompile Include="src\test_day4.cpp" />
+    <ClCompile Include="src\test_day5.cpp" />
+    <ClCompile Include="src\test_day6.cpp" />
+    <ClCompile Include="src\test_day7.cpp" />
+    <ClCompile Include="src\test_day8.cpp" />
+    <ClCompile Include="src\test_day9.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\pch.h" />
@@ -179,7 +201,30 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="resources\test_day1.txt" />
+    <Text Include="resources\test_day10.txt" />
+    <Text Include="resources\test_day11.txt" />
+    <Text Include="resources\test_day12.txt" />
+    <Text Include="resources\test_day13.txt" />
+    <Text Include="resources\test_day14.txt" />
+    <Text Include="resources\test_day15.txt" />
+    <Text Include="resources\test_day16.txt" />
+    <Text Include="resources\test_day17.txt" />
+    <Text Include="resources\test_day18.txt" />
+    <Text Include="resources\test_day19.txt" />
     <Text Include="resources\test_day2.txt" />
+    <Text Include="resources\test_day20.txt" />
+    <Text Include="resources\test_day21.txt" />
+    <Text Include="resources\test_day22.txt" />
+    <Text Include="resources\test_day23.txt" />
+    <Text Include="resources\test_day24.txt" />
+    <Text Include="resources\test_day25.txt" />
+    <Text Include="resources\test_day3.txt" />
+    <Text Include="resources\test_day4.txt" />
+    <Text Include="resources\test_day5.txt" />
+    <Text Include="resources\test_day6.txt" />
+    <Text Include="resources\test_day7.txt" />
+    <Text Include="resources\test_day8.txt" />
+    <Text Include="resources\test_day9.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
