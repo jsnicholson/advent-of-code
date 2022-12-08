@@ -1,9 +1,5 @@
 #include "Day11.h"
 
-#include <assert.h>
-#include <fstream>
-#include <iostream>
-
 void Day11::Parse() {
 }
 

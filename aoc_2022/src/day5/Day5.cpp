@@ -1,8 +1,6 @@
 #include "Day5.h"
 
 #include <cmath>
-#include <regex>
-#include <iostream>
 
 void Day5::Parse() {
     size_t indexCrateDefinitionLine = 0;

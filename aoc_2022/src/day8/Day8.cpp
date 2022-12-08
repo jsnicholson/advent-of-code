@@ -1,7 +1,5 @@
 #include "Day8.h"
 
-#include <iostream>
-
 void Day8::Parse() {
     for (std::vector<std::string>::const_iterator it = data.begin(); it != data.end(); it++) {
         const std::string line = *it;

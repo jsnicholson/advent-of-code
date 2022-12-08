@@ -1,7 +1,5 @@
 #include "Day14.h"
 
-#include <iostream>
-
 void Day14::Parse() {
 }
 

@@ -1,7 +1,5 @@
 #include "DayTemplate.h"
 
-#include <iostream>
-
 void DayTemplate::Parse() {
 }
 
