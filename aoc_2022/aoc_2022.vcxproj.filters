@@ -251,79 +251,79 @@
     <Text Include="resources\input_day25.txt">
       <Filter>Resource Files\input</Filter>
     </Text>
-    <Text Include="tasks\task_day1.txt">
+    <Text Include="resources\task_day1.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day2.txt">
+    <Text Include="resources\task_day2.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day3.txt">
+    <Text Include="resources\task_day3.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day4.txt">
+    <Text Include="resources\task_day4.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day5.txt">
+    <Text Include="resources\task_day5.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day6.txt">
+    <Text Include="resources\task_day6.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day7.txt">
+    <Text Include="resources\task_day7.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day8.txt">
+    <Text Include="resources\task_day8.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day9.txt">
+    <Text Include="resources\task_day9.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day10.txt">
+    <Text Include="resources\task_day10.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day11.txt">
+    <Text Include="resources\task_day11.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day12.txt">
+    <Text Include="resources\task_day12.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day13.txt">
+    <Text Include="resources\task_day13.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day14.txt">
+    <Text Include="resources\task_day14.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day15.txt">
+    <Text Include="resources\task_day15.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day16.txt">
+    <Text Include="resources\task_day16.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day17.txt">
+    <Text Include="resources\task_day17.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day18.txt">
+    <Text Include="resources\task_day18.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day19.txt">
+    <Text Include="resources\task_day19.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day20.txt">
+    <Text Include="resources\task_day20.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day21.txt">
+    <Text Include="resources\task_day21.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day22.txt">
+    <Text Include="resources\task_day22.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day23.txt">
+    <Text Include="resources\task_day23.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day24.txt">
+    <Text Include="resources\task_day24.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
-    <Text Include="tasks\task_day25.txt">
+    <Text Include="resources\task_day25.txt">
       <Filter>Resource Files\task</Filter>
     </Text>
   </ItemGroup>
