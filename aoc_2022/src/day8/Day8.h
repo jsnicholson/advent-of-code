@@ -17,4 +17,5 @@ private:
 public:
 	void CalculateVisibilityFromLeft(const std::vector<std::vector<int>>& trees, std::vector<std::vector<int>>& visibility);
 	void Rotate(std::vector<std::vector<int>>& matrix);
+	int CalculateScenicScore(const std::vector<std::vector<int>>& trees, std::pair<int,int> tree);
 };

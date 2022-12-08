@@ -15,7 +15,7 @@ void Day8::Parse() {
 std::string Day8::Part1() {
     std::vector<std::vector<int>> trees = m_trees;
     // have to do int instead of bool as std::vector<bool> is weird af (https://stackoverflow.com/a/63477526)
-    std::vector<std::vector<int>> whichTreesVisibleFromOutsideGrid(trees.size(), std::vector<int>(m_trees.size(), false));
+    std::vector<std::vector<int>> whichTreesVisibleFromOutsideGrid(trees.size(), std::vector<int>(trees.size(), false));
 
     for (int direction = 0; direction < 4; direction++) {
         CalculateVisibilityFromLeft(trees, whichTreesVisibleFromOutsideGrid);
@@ -32,7 +32,17 @@ std::string Day8::Part1() {
 }
 
 std::string Day8::Part2() {
-    return std::string("unimplemented");
+    std::vector<std::vector<int>> trees = m_trees;
+    std::vector<std::vector<int>> treeScenicScores(trees.size(), std::vector<int>(trees.size(), 0));
+
+    int maxScenicScore = 0;
+    for (int row = 1; row < trees.size() - 1; row++) {
+        for (int column = 1; column < trees.size(); column++) {
+            maxScenicScore = std::max(maxScenicScore, CalculateScenicScore(trees,std::make_pair(row,column)));
+        }
+    }
+
+    return std::to_string(maxScenicScore);
 }
 
 void Day8::CalculateVisibilityFromLeft(const std::vector<std::vector<int>>& trees, std::vector<std::vector<int>>& visibility) {
@@ -46,6 +56,35 @@ void Day8::CalculateVisibilityFromLeft(const std::vector<std::vector<int>>& tree
             currentMax = std::max(currentMax, trees[row][column]);
         }
     }
+}
+
+int Day8::CalculateScenicScore(const std::vector<std::vector<int>>& trees, std::pair<int,int> tree) {
+    int height = trees[tree.first][tree.second], leftScenicScore = 0, rightScenicScore = 0, upScenicScore = 0, downScenicScore = 0;
+    //left
+    for (int column = tree.second - 1; column >= 0; column--) {
+        leftScenicScore++;
+        if (trees[tree.first][column] >= height)
+            break;
+    }
+    //right
+    for (int column = tree.second + 1; column < trees.size(); column++) {
+        rightScenicScore++;
+        if (trees[tree.first][column] >= height)
+            break;
+    }
+    //top
+    for (int row = tree.first - 1; row >= 0; row--) {
+        upScenicScore++;
+        if (trees[row][tree.second] >= height)
+            break;
+    }
+    //bottom
+    for (int row = tree.first + 1; row < trees.size(); row++) {
+        downScenicScore++;
+        if (trees[row][tree.second] >= height)
+            break;
+    }
+    return leftScenicScore * rightScenicScore * upScenicScore * downScenicScore;
 }
 
 void Day8::Rotate(std::vector<std::vector<int>>& matrix) {
