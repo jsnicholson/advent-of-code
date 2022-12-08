@@ -18,4 +18,5 @@ public:
 	void CalculateVisibilityFromLeft(const std::vector<std::vector<int>>& trees, std::vector<std::vector<int>>& visibility);
 	void Rotate(std::vector<std::vector<int>>& matrix);
 	int CalculateScenicScore(const std::vector<std::vector<int>>& trees, std::pair<int,int> tree);
+	bool PairInRange(std::pair<int, int> min, std::pair<int, int> max, std::pair<int, int> value);
 };

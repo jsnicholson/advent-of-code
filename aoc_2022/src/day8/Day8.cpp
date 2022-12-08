@@ -59,32 +59,24 @@ void Day8::CalculateVisibilityFromLeft(const std::vector<std::vector<int>>& tree
 }
 
 int Day8::CalculateScenicScore(const std::vector<std::vector<int>>& trees, std::pair<int,int> tree) {
-    int height = trees[tree.first][tree.second], leftScenicScore = 0, rightScenicScore = 0, upScenicScore = 0, downScenicScore = 0;
-    //left
-    for (int column = tree.second - 1; column >= 0; column--) {
-        leftScenicScore++;
-        if (trees[tree.first][column] >= height)
-            break;
+    int height = trees[tree.first][tree.second];
+    std::vector<std::pair<int, int>> directions{ {0,-1},{0,1},{-1,0},{1,0} };
+    std::pair<int, int> minCoord(0, 0);
+    std::pair<int, int> maxCoord(trees.size() - 1, trees.size() - 1);
+    int totalScenicScore = 1;
+    for (const auto& direction : directions) {
+        int directionScenicScore = 0;
+        std::pair<int, int> coord = std::make_pair(tree.first+direction.first,tree.second+direction.second);
+        while (PairInRange(minCoord, maxCoord, coord)) {
+            directionScenicScore++;
+            if (trees[coord.first][coord.second] >= height)
+                break;
+            coord.first += direction.first;
+            coord.second += direction.second;
+        }
+        totalScenicScore *= directionScenicScore;
     }
-    //right
-    for (int column = tree.second + 1; column < trees.size(); column++) {
-        rightScenicScore++;
-        if (trees[tree.first][column] >= height)
-            break;
-    }
-    //top
-    for (int row = tree.first - 1; row >= 0; row--) {
-        upScenicScore++;
-        if (trees[row][tree.second] >= height)
-            break;
-    }
-    //bottom
-    for (int row = tree.first + 1; row < trees.size(); row++) {
-        downScenicScore++;
-        if (trees[row][tree.second] >= height)
-            break;
-    }
-    return leftScenicScore * rightScenicScore * upScenicScore * downScenicScore;
+    return totalScenicScore;
 }
 
 void Day8::Rotate(std::vector<std::vector<int>>& matrix) {
@@ -94,4 +86,9 @@ void Day8::Rotate(std::vector<std::vector<int>>& matrix) {
             std::swap(matrix[row][column], matrix[column][row]);
         }
     }
+}
+
+bool Day8::PairInRange(std::pair<int, int> min, std::pair<int, int> max, std::pair<int, int> value) {
+    return (value.first >= min.first && value.first <= max.first) &&
+        (value.second >= min.second && value.second <= max.second);
 }
