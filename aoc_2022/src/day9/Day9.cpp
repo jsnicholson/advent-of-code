@@ -56,7 +56,7 @@ std::string Day9::Part2() {
     return std::to_string(m_placesTailHasBeen.size());
 }
 
-bool Day9::AreTwoCoordsTouching(coordinate firstCoord, coordinate secondCoord) {
+bool Day9::AreTwoCoordsTouching(const coordinate firstCoord, const coordinate secondCoord) {
     auto difference = firstCoord - secondCoord;
     return (abs(difference.first) <= 1 && abs(difference.second) <= 1);
 }
@@ -98,8 +98,4 @@ std::pair<int, int> operator+(const std::pair<int, int>& lhs, const std::pair<in
 
 std::pair<int, int> operator-(const std::pair<int, int>& lhs, const std::pair<int, int>& rhs) {
     return std::make_pair(lhs.first - rhs.first, lhs.second - rhs.second);
-}
-
-std::pair<int, int> operator*(const std::pair<int, int>& lhs, const std::pair<int, int>& rhs) {
-    return std::make_pair(lhs.first * rhs.first, lhs.second * rhs.second);
 }
