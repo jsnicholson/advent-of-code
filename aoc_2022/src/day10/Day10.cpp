@@ -17,9 +17,10 @@ std::string Day10::Part1() {
     }
 
     size_t sum = std::accumulate(interestingSignalStrengths.begin(), interestingSignalStrengths.end(), 0,
-                    [](const int prev, const std::pair<int, int>& entry) {
-                            return prev + entry.second;
-                            });
+        [](const int prev, const std::pair<int, int>& entry) {
+            return prev + entry.second;
+        });
+
     return std::to_string(sum);
 }
 
