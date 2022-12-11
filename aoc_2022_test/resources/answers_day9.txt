@@ -1,0 +1,5 @@
+--- Part One ---
+Your puzzle answer was 6098.
+
+--- Part Two ---
+Your puzzle answer was 2597.
