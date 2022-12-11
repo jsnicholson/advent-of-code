@@ -25,8 +25,8 @@ std::string Day10::Part1() {
 
 // part2 doesnt produce a direct value, but produces a output that resembles drawn characters
 std::string Day10::Part2() {
-    std::string output{"\n "};
     int xRegister = 1, cycle = 0;
+    std::string output{"\n "};
     
     for (std::vector<std::string>::const_iterator it = m_instructions.begin(); it != m_instructions.end(); it++) {
         std::string instruction = *it;
