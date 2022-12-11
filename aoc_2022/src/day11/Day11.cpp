@@ -2,6 +2,8 @@
 
 #include "Utils.hpp"
 
+std::vector<std::pair<item,size_t>> g_thrownItems{};
+
 void Day11::Parse() {
     std::string monkeyPlainTextDescription{};
     for (std::vector<std::string>::const_iterator it = data.begin(); it != data.end(); it++) {
@@ -23,7 +25,24 @@ void Day11::Parse() {
 }
 
 std::string Day11::Part1() {
-    return std::string("unimplemented");
+    for (int round = 0; round < 20; round++) {
+        for (std::vector<Monkey*>::iterator it = m_monkeys.begin(); it != m_monkeys.end(); it++) {
+            auto monkey = *it;
+            monkey->InspectAllItems();
+            CatchItems();
+        }
+    }
+
+    std::vector<int> inspectionCounts{};
+    for (std::vector<Monkey*>::const_iterator it = m_monkeys.begin(); it != m_monkeys.end(); it++) {
+        auto monkey = *it;
+        inspectionCounts.push_back(monkey->GetItemsInspectedCount());
+    }
+    std::sort(inspectionCounts.rbegin(), inspectionCounts.rend());
+
+    uint64_t monkeyBusiness = inspectionCounts[0] * inspectionCounts[1];
+
+    return std::to_string(monkeyBusiness);
 }
 
 std::string Day11::Part2() {
@@ -34,7 +53,17 @@ bool Day11::DoesStringStartWithToken(const std::string string, const std::string
     return string.rfind(token, 0) == 0;
 }
 
-Monkey::Monkey(std::string plainTextDescription) : m_testDivisibleBy(0), m_ifTestTrueThrowToMonkeyNumber(0), m_ifTestFalseThrowToMonkeyNumber(0) {
+void Day11::CatchItems() {
+    size_t itemsToCatch = g_thrownItems.size();
+    for (size_t count = 0; count < itemsToCatch; count++) {
+        auto entry = g_thrownItems.front();
+        auto item = entry.first;
+        auto monkeyToCatch = entry.second;
+        m_monkeys[monkeyToCatch]->CatchItem(item);
+    }
+}
+
+Monkey::Monkey(std::string plainTextDescription) : m_itemsInspected(0), m_testDivisibleBy(0), m_ifTestTrueThrowToMonkeyNumber(0), m_ifTestFalseThrowToMonkeyNumber(0) {
     std::vector<std::string> lines = Utils::Split(plainTextDescription, '\n');
     size_t found;
     for (std::vector<std::string>::const_iterator it = lines.begin(); it != lines.end(); it++) {
@@ -43,23 +72,12 @@ Monkey::Monkey(std::string plainTextDescription) : m_testDivisibleBy(0), m_ifTes
             if (found = line.find(entry.first) != std::string::npos)
                 entry.second(line.substr(found + entry.first.length() + 1));
         }
-
-        //if (found = line.find(m_tokenStartingItems) != std::string::npos)
-        //    ProcessStartingItems(line.substr(found + m_tokenStartingItems.length() + 1));
-        //else if (found = line.find(m_tokenOperation) != std::string::npos)
-        //    ProcessOperation(line.substr(found + m_tokenOperation.length() + 1));
-        //else if (found = line.find(m_tokenTestDivisbleBy) != std::string::npos)
-        //    ProcessTest(line.substr(found + m_tokenTestDivisbleBy.length() + 1));
-        //else if (found = line.find(m_tokenTrue) != std::string::npos)
-        //    ProcessTestTrue(line.substr(found + m_tokenTrue.length() + 1));
-        //else if (found = line.find(m_tokenFalse) != std::string::npos)
-        //    ProcessTestFalse(line.substr(found + m_tokenFalse.length() + 1));
     }
 }
 
 void Monkey::ProcessStartingItems(const std::string startingItemsString) {
     const auto values = Utils::Split(startingItemsString, ", ");
-    for (int count = 0; count < values.size(); count++)
+    for (size_t count = 0; count < values.size(); count++)
         m_items.push_back(std::stoi(values[count]));
 }
 
@@ -68,7 +86,7 @@ void Monkey::ProcessOperation(const std::string operationString) {
     const char op = tokens[3][0];
     const TermType termType = (tokens[4] != "old") ? TermType::constant : TermType::variable;
     const int term = (termType == TermType::constant) ? std::stoi(tokens[4]) : INT_MIN;
-    m_operation = [op, term, termType](int& valueToUpdate) {
+    m_operation = [op, term, termType](item& valueToUpdate) {
         if (termType == TermType::constant) {
             if (op == '+')
                 valueToUpdate += term;
@@ -96,4 +114,43 @@ void Monkey::ProcessTestTrue(const std::string testTrueString) {
 void Monkey::ProcessTestFalse(const std::string testFalseString) {
     const auto tokens = Utils::Split(testFalseString, ' ');
     m_ifTestFalseThrowToMonkeyNumber = std::stoi(tokens[4]);
+}
+
+void Monkey::InspectAllItems() {
+    int itemCount = m_items.size();
+    for (int count = 0; count < itemCount; count++) {
+        InspectFirstItem();
+        m_itemsInspected++;
+        size_t whereToThrowItem = DecideWhereToThrowItem();
+        ThrowItem(whereToThrowItem);
+    }
+}
+
+void Monkey::InspectFirstItem() {
+    auto& item = m_items.front();
+    m_operation(item);
+    item /= 3;
+}
+
+size_t Monkey::DecideWhereToThrowItem() {
+    auto item = m_items.front();
+    return (item % m_testDivisibleBy == 0) ? m_ifTestTrueThrowToMonkeyNumber : m_ifTestFalseThrowToMonkeyNumber;
+}
+
+void Monkey::ThrowItem(const size_t monkeyToThrowTo) {
+    auto frontItem = m_items.front();
+    m_items.erase(m_items.begin());
+    g_thrownItems.push_back( { frontItem, monkeyToThrowTo } );
+}
+
+void Monkey::CatchItem(const item itemCaught) {
+    m_items.push_back(itemCaught);
+    g_thrownItems.erase(g_thrownItems.begin());
+}
+
+void Monkey::ShowItems() {
+    for (std::vector<item>::const_iterator it = m_items.begin(); it != m_items.end(); it++) {
+        std::cout << *it << ", ";
+    }
+    std::cout << std::endl;
 }

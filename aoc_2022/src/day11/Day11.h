@@ -4,15 +4,19 @@
 #include <functional>
 #include <map>
 
+typedef uint64_t item;
+
 class Monkey {
 public:
 	// plainTextDescription needs to be parsed to fill out members
 	Monkey(std::string plainTextDescription);
 
 private:
-	std::vector<uint64_t> m_items;
-	std::function<void(int&)> m_operation;
-	int m_testDivisibleBy, m_ifTestTrueThrowToMonkeyNumber, m_ifTestFalseThrowToMonkeyNumber;
+	std::vector<item> m_items;
+	std::function<void(item&)> m_operation;
+	int m_testDivisibleBy;
+	size_t m_ifTestTrueThrowToMonkeyNumber, m_ifTestFalseThrowToMonkeyNumber;
+	int m_itemsInspected;
 
 private:
 	const std::string m_tokenStartingItems = "Starting items: ";
@@ -40,6 +44,17 @@ private:
 	void ProcessTest(const std::string);
 	void ProcessTestTrue(const std::string);
 	void ProcessTestFalse(const std::string);
+
+	void InspectFirstItem();
+	size_t DecideWhereToThrowItem();
+
+public:
+	void InspectAllItems();
+	
+	void ThrowItem(const size_t monkeyToThrowTo);
+	void CatchItem(const item itemCaught);
+	int GetItemsInspectedCount() { return m_itemsInspected; }
+	void ShowItems();
 };
 
 class Day11 : public Day {
@@ -52,4 +67,5 @@ private:
 	std::string Part2() override;
 
 	bool DoesStringStartWithToken(const std::string string, const std::string token);
+	void CatchItems();
 };
