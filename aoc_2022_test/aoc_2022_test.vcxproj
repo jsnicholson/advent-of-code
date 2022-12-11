@@ -200,6 +200,31 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="resources\answers_day1.txt" />
+    <Text Include="resources\answers_day10.txt" />
+    <Text Include="resources\answers_day11.txt" />
+    <Text Include="resources\answers_day12.txt" />
+    <Text Include="resources\answers_day13.txt" />
+    <Text Include="resources\answers_day14.txt" />
+    <Text Include="resources\answers_day15.txt" />
+    <Text Include="resources\answers_day16.txt" />
+    <Text Include="resources\answers_day17.txt" />
+    <Text Include="resources\answers_day18.txt" />
+    <Text Include="resources\answers_day19.txt" />
+    <Text Include="resources\answers_day2.txt" />
+    <Text Include="resources\answers_day20.txt" />
+    <Text Include="resources\answers_day21.txt" />
+    <Text Include="resources\answers_day22.txt" />
+    <Text Include="resources\answers_day23.txt" />
+    <Text Include="resources\answers_day24.txt" />
+    <Text Include="resources\answers_day25.txt" />
+    <Text Include="resources\answers_day3.txt" />
+    <Text Include="resources\answers_day4.txt" />
+    <Text Include="resources\answers_day5.txt" />
+    <Text Include="resources\answers_day6.txt" />
+    <Text Include="resources\answers_day7.txt" />
+    <Text Include="resources\answers_day8.txt" />
+    <Text Include="resources\answers_day9.txt" />
     <Text Include="resources\test_day1.txt" />
     <Text Include="resources\test_day10.txt" />
     <Text Include="resources\test_day11.txt" />
