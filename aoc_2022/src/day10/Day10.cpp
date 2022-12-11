@@ -54,7 +54,7 @@ std::vector<Day10::state> Day10::ExecuteInstruction(int& cycle, int& xRegister, 
 
 void Day10::StatesToInterestingSignalStrengths(const std::vector<state> states, std::map<int, int>& interestingSignalStrengths) {
     std::map<int, int>::iterator it;
-    for (const auto state : states) {
+    for (const auto& state : states) {
         const int cycle = state.first;
         const int xRegister = state.second;
         it = interestingSignalStrengths.find(cycle);
@@ -64,7 +64,7 @@ void Day10::StatesToInterestingSignalStrengths(const std::vector<state> states, 
 }
 
 void Day10::StatesToScreenOutput(const std::vector<state> states, std::string& output) {
-    for (const auto state : states) {
+    for (const auto& state : states) {
         const int cycle = state.first;
         const int xRegister = state.second;
         if (cycle % m_screenWidth == 0)
