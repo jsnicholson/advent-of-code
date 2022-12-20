@@ -57,13 +57,6 @@ std::string Day11::Part2() {
             monkey->InspectAllItems();
             CatchItems();
         }
-
-        if (round == 9999) {
-            std::cout << "===== Round " << round + 1 << " =====" << std::endl;
-            for (int i = 0; i < m_monkeys.size(); i++) {
-                std::cout << "Monkey " << i << ": " << m_monkeys[i]->GetItemsInspectedCount() << std::endl;
-            }
-        }
     }
 
     std::vector<uint64_t> inspectionCounts{};
