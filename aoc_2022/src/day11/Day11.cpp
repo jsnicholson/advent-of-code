@@ -3,6 +3,7 @@
 #include "Utils.hpp"
 
 std::vector<std::pair<item,size_t>> g_thrownItems{};
+int modulus = 1;
 
 void Day11::Parse() {
     std::string monkeyPlainTextDescription{};
@@ -46,7 +47,35 @@ std::string Day11::Part1() {
 }
 
 std::string Day11::Part2() {
-    return std::string("unimplemented");
+    modulus = 1;
+    m_monkeys.clear();
+    Parse();
+
+    for (int round = 0; round < 10000; round++) {
+        for (std::vector<Monkey*>::iterator it = m_monkeys.begin(); it != m_monkeys.end(); it++) {
+            auto monkey = *it;
+            monkey->InspectAllItems();
+            CatchItems();
+        }
+
+        if (round == 9999) {
+            std::cout << "===== Round " << round + 1 << " =====" << std::endl;
+            for (int i = 0; i < m_monkeys.size(); i++) {
+                std::cout << "Monkey " << i << ": " << m_monkeys[i]->GetItemsInspectedCount() << std::endl;
+            }
+        }
+    }
+
+    std::vector<uint64_t> inspectionCounts{};
+    for (std::vector<Monkey*>::const_iterator it = m_monkeys.begin(); it != m_monkeys.end(); it++) {
+        auto monkey = *it;
+        inspectionCounts.push_back(monkey->GetItemsInspectedCount());
+    }
+    std::sort(inspectionCounts.rbegin(), inspectionCounts.rend());
+
+    uint64_t monkeyBusiness = inspectionCounts[0] * inspectionCounts[1];
+
+    return std::to_string(monkeyBusiness);
 }
 
 bool Day11::DoesStringStartWithToken(const std::string string, const std::string token) {
@@ -104,6 +133,8 @@ void Monkey::ProcessOperation(const std::string operationString) {
 void Monkey::ProcessTest(const std::string testString) {
     const auto tokens = Utils::Split(testString, ' ');
     m_testDivisibleBy = std::stoi(tokens[2]);
+
+    modulus *= m_testDivisibleBy;
 }
 
 void Monkey::ProcessTestTrue(const std::string testTrueString) {
@@ -129,7 +160,7 @@ void Monkey::InspectAllItems() {
 void Monkey::InspectFirstItem() {
     auto& item = m_items.front();
     m_operation(item);
-    item /= 3;
+    item = item % modulus;
 }
 
 size_t Monkey::DecideWhereToThrowItem() {
