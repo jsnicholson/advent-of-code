@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\input">
+      <UniqueIdentifier>{b07f358c-a861-4e60-b8d4-17c80cc1251c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\answers">
+      <UniqueIdentifier>{ae7bb188-270e-46bc-ab0e-8a9ab1ce4416}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\test_day2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day5.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day6.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day7.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day8.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day10.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day12.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day13.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day14.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day15.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day16.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day17.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day18.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day19.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day20.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day21.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day22.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day23.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day24.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test_day25.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\pch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\answers_day1.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day2.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day3.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day4.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day5.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day6.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day7.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day8.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day9.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day10.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day11.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day12.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day13.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day14.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day15.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day16.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day17.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day18.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day19.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day20.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day21.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day22.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day23.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day24.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\answers_day25.txt">
+      <Filter>Resource Files\answers</Filter>
+    </Text>
+    <Text Include="resources\test_day1.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day2.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day3.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day4.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day5.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day6.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day7.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day8.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day9.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day10.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day11.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day12.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day13.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day14.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day15.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day16.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day17.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day18.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day19.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day20.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day21.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day22.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day23.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day24.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+    <Text Include="resources\test_day25.txt">
+      <Filter>Resource Files\input</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
