@@ -4,46 +4,50 @@
 #include <numeric>
 
 void Day1::Parse() {
-    // parse input to a vector<int> for each elf (each set of calories)
-    std::vector<int> calories = {};
-    for (std::vector<std::string>::iterator it = data.begin(); it != data.end(); it++) {
-        if (it->empty()) {
-            m_caloriesPerElf.push_back(calories);
-            calories.clear();
-            continue;
-        }
-        
-        calories.push_back(std::stoi(*it));
-    }
-    if (!calories.empty())
-        m_caloriesPerElf.push_back(calories);
+    m_lines = data;
 }
 
 std::string Day1::Part1() {
-    auto calories = SumEachElfsCalories();
-    int result = *std::max_element(calories.begin(), calories.end());
-    return std::to_string(result);
+    std::vector<int> vectorCalibrationValues = {};
+    for (std::vector<std::string>::iterator it = m_lines.begin(); it != m_lines.end(); it++) {
+        std::string line = *it;
+        std::pair<char, char> pairCalibrationValues = FindFirstAndLastDigit(line);
+        vectorCalibrationValues.push_back(std::stoi(std::string{pairCalibrationValues.first,pairCalibrationValues.second}));
+    }
+    return std::to_string(std::accumulate(vectorCalibrationValues.begin(), vectorCalibrationValues.end(), 0));
 }
 
 std::string Day1::Part2() {
-    auto calories = SumEachElfsCalories();
-    std::sort(calories.begin(), calories.end());
 
-    // count last three values
-    auto iterator = calories.end();
-    int count = 0;
-    for (int i = 0; i < 3; i++)
-        count += *--iterator;
-
-    return std::to_string(count);
+    return std::to_string(0);
 }
 
-std::vector<int> Day1::SumEachElfsCalories() { 
-    std::vector<int> sums = {};
-    for (std::vector<std::vector<int>>::iterator it = m_caloriesPerElf.begin(); it != m_caloriesPerElf.end(); it++) {
-        auto elfCalories = *it;
-        auto result = std::accumulate(elfCalories.begin(), elfCalories.end(), 0);
-        sums.push_back(result);
+std::pair<char, char> Day1::FindFirstAndLastDigit(std::string line) {
+    std::pair<char, char> digits;
+    std::string::iterator it = line.begin();
+    std::string::reverse_iterator rit = line.rbegin();
+
+    while (it != line.end()) {
+        char c = *it;
+        if (std::isdigit(c)) {
+            digits.first = c;
+            it = line.end();
+            continue;
+        }
+
+        it++;
     }
-    return sums;
+
+    while (rit != line.rend()) {
+        char c = *rit;
+        if (std::isdigit(c)) {
+            digits.second = c;
+            rit = line.rend();
+            continue;
+        }
+
+        rit++;
+    }
+    
+    return digits;
 }
