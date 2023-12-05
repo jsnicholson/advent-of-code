@@ -5,8 +5,15 @@
 
 class Day2 : public Day {
 public:
-	typedef std::pair<char, char> round;
-	std::list<round> m_rounds;
+	struct round {
+		int red;
+		int green;
+		int blue;
+	};
+	struct game {
+		int id;
+		std::vector<round> rounds = std::vector<round>();
+	};
 
 public:
 	void Parse() override;
@@ -14,6 +21,8 @@ public:
 	std::string Part2() override;
 
 public:
-	static int CalculateRoundScore(round round);
-	static char CalculateWhatToPlay(round round);
+	std::vector<game> m_games;
+	int maxRed = 12;
+	int maxGreen = 13;
+	int maxBlue = 14;
 };
