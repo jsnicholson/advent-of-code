@@ -11,6 +11,8 @@ public:
 
 public:
 	std::pair<char, char> FindFirstAndLastDigit(std::string line);
+	size_t FindFirstDigit(std::string line);
+	size_t FindLastDigit(std::string line);
 
 public:
 	std::vector<std::string> m_lines;
