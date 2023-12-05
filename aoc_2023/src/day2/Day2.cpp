@@ -47,5 +47,15 @@ std::string Day2::Part1() {
 }
 
 std::string Day2::Part2() {
-    return std::to_string(0);
+    std::vector<int> vectorCubePower = {};
+    for (const auto& game : m_games) {
+        int maxRedSeen = 0, maxGreenSeen = 0, maxBlueSeen = 0;
+        for (const auto& round : game.rounds) {
+            maxRedSeen = std::max(maxRedSeen, round.red);
+            maxGreenSeen = std::max(maxGreenSeen, round.green);
+            maxBlueSeen = std::max(maxBlueSeen, round.blue);
+        }
+        vectorCubePower.push_back(maxRedSeen * maxGreenSeen * maxBlueSeen);
+    }
+    return std::to_string(std::accumulate(vectorCubePower.begin(),vectorCubePower.end(),0));
 }
