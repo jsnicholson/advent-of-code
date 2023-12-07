@@ -50,5 +50,32 @@ std::string Day3::Part1() {
 }
 
 std::string Day3::Part2() {
-    return std::to_string(0);
+    std::regex regexGear = std::regex("[*]");
+    std::vector<int> vectorGearRatios;
+    for (std::sregex_iterator it = std::sregex_iterator(m_schematic.begin(), m_schematic.end(), regexGear); it != std::sregex_iterator(); ++it) {
+        int gearRatio = ProcessPotentialGear(it->position());
+        if (gearRatio > 0)
+            vectorGearRatios.push_back(gearRatio);
+    }
+    return std::to_string(std::accumulate(vectorGearRatios.begin(), vectorGearRatios.end(), 0));
+}
+
+int Day3::ProcessPotentialGear(int index) {
+    std::vector<int> vectorPartNumbers;
+    std::set<int> setAddedPartIds;
+    for (int neighbourIndex : m_indexNeighbours) {
+        std::map<int, part>::iterator itPartAtLocation = m_mapPartNumbers.find(index + neighbourIndex);
+
+        if (itPartAtLocation == m_mapPartNumbers.end()
+            || setAddedPartIds.contains(itPartAtLocation->second.id))
+            continue;
+
+        setAddedPartIds.insert(itPartAtLocation->second.id);
+        vectorPartNumbers.push_back(itPartAtLocation->second.value);
+
+        if (vectorPartNumbers.size() > 2)
+            return 0;
+    }
+
+    return (vectorPartNumbers.size() == 2) ? vectorPartNumbers[0] * vectorPartNumbers[1] : 0;
 }

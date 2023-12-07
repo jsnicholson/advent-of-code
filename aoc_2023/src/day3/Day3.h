@@ -16,6 +16,9 @@ public:
 	std::string Part2() override;
 
 public:
+	int ProcessPotentialGear(int index);
+
+public:
 	std::vector<std::string> m_grid;
 	std::string m_schematic;
 	int m_indexNeighbours[8];
