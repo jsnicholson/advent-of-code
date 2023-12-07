@@ -33,7 +33,8 @@ void Day4::Parse() {
 std::string Day4::Part1() {
     int totalPoints = 0;
     for (const card card : m_cards) {
-        totalPoints += CalculateCardPoints(card);
+        int matches = CalculateCardMatches(card);
+        totalPoints += (matches > 0) ? 1 << (matches - 1) : 0;
     }
     return std::to_string(totalPoints);
 }
@@ -42,13 +43,13 @@ std::string Day4::Part2() {
     return std::to_string(0);
 }
 
-int Day4::CalculateCardPoints(card card) {
-    int cardPoints = 0;
+int Day4::CalculateCardMatches(card card) {
+    int matches = 0;
     for (const int playedNumber : card.playedNumbers) {
         if (std::find(card.winningNumbers.begin(), card.winningNumbers.end(), playedNumber) == card.winningNumbers.end())
             continue;
 
-        (cardPoints == 0) ? cardPoints = 1 : cardPoints = cardPoints * 2;
+        matches++;
     }
-    return cardPoints;
+    return matches;
 }

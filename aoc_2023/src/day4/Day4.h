@@ -15,7 +15,7 @@ private:
 	std::string Part2() override;
 
 public:
-	int CalculateCardPoints(card card);
+	int CalculateCardMatches(card card);
 
 public:
 	std::vector<card> m_cards;
