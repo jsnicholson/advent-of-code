@@ -3,6 +3,7 @@
 #include "Utils.hpp"
 
 #include <algorithm>
+#include <list>
 
 void Day4::Parse() {
     for (std::vector<std::string>::iterator it = data.begin(); it != data.end(); it++) {
@@ -40,7 +41,30 @@ std::string Day4::Part1() {
 }
 
 std::string Day4::Part2() {
-    return std::to_string(0);
+    /*std::list<card> cards;
+    std::copy(m_cards.begin(), m_cards.end(), std::back_inserter(cards));
+    std::list<card>::iterator it = cards.begin();
+    while (it != cards.end()) {
+        card card = *it;
+        int matches = CalculateCardMatches(card);
+        std::cout << "card " << card.id << " has " << matches << " matches" << std::endl;
+        for (int i = 0; i < matches; i++)
+            cards.push_back(m_cards[card.id + i]);
+
+        it = cards.erase(it);
+    }
+    return std::to_string(cards.size());*/
+    std::vector<int> cardCounts(m_cards.size());
+    std::fill(cardCounts.begin(), cardCounts.end(), 1);
+    for (int i = 0; i < cardCounts.size(); i++) {
+        card card = m_cards.at(i);
+        int matches = CalculateCardMatches(card);
+        for (int m = 1; m <= matches; m++) {
+            cardCounts[i + m] += cardCounts[i];
+        }
+    }
+
+    return std::to_string(std::accumulate(cardCounts.begin(), cardCounts.end(), 0));
 }
 
 int Day4::CalculateCardMatches(card card) {
