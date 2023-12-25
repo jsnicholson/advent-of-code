@@ -1,15 +1,20 @@
 #pragma once
 #include "Day.h"
 
+#include <map>
+
 class Day5 : public Day {
 public:
+	typedef unsigned long long ull;
+	typedef std::pair<ull, ull> pull;
+
 	struct rule {
-		unsigned long sourceMin, sourceMax;
-		unsigned long destinationMin;
+		ull sourceStart;
+		ull destinationStart;
+		ull length;
 	};
 
-	typedef std::vector<rule> mapper;
-	typedef std::map<unsigned long, unsigned long> improvedMapper;
+	typedef std::vector<rule> mapping;
 
 private:
 	void Parse() override;
@@ -17,9 +22,12 @@ private:
 	std::string Part2() override;
 
 public:
-	unsigned long MapValue(mapper mapper, unsigned long value);
+	ull MapValue(mapping mapper, ull value);
+	ull CalculateLocation(ull seed);
+	std::vector<pull> LookUp(std::vector<pull> keyRanges,mapping mapper);
+	ull GetMin(ull current, const std::vector<pull>& ranges);
 
 public:
-	std::vector<unsigned long> m_seedNumbers;
-	std::vector<mapper> m_maps;
+	std::vector<ull> m_seedNumbers;
+	std::vector<mapping> m_maps;
 };
