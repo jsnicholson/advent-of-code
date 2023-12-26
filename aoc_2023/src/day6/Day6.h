@@ -3,9 +3,10 @@
 
 class Day6 : public Day {
 public:
+	typedef unsigned long long ull;
 	struct race {
-		int distance;
-		int length;
+		ull length;
+		ull distance;
 	};
 
 private:
@@ -14,8 +15,10 @@ private:
 	std::string Part2() override;
 
 public:
-	int SolveForDistance(int raceLength, int timeButtonHeld);
-	std::pair<double, double> SolveForTime(int raceLength, int raceDistance);
+	ull SolveForDistance(ull raceLength, ull timeButtonHeld);
+	std::pair<double, double> SolveForTime(ull raceLength, ull raceDistance);
+	ull CalculateWaysToBeat(race race);
+	race ConcatenateRaces();
 
 public:
 	std::vector<race> m_races;
