@@ -5,6 +5,8 @@
 
 class Day7 : public Day {
 public:
+	typedef unsigned long long ull;
+
 	struct play {
 		std::string hand;
 		int bid;
@@ -24,7 +26,8 @@ public:
 		{'A',14},
 		{'K',13},
 		{'Q',12},
-		{'J',11},
+		// {'J',11} for part 1, was lazy and manually changed it instead of having variations
+		{'J',1},
 		{'T',10}
 	};
 
@@ -38,7 +41,8 @@ public:
 	static std::vector<std::pair<char,int>> GetCharacterDistribution(std::string str);
 	static bool CompareRank(const std::pair<play, type>& a, const std::pair<play, type>& b);
 	static int GetCardValue(const char c);
-	static int CalculateWinnings(const std::vector<std::pair<play, type>> rankedPlays);
+	static ull CalculateWinnings(const std::vector<std::pair<play, type>> rankedPlays);
+	void ProcessJoker(std::string& hand);
 
 public:
 	std::vector<play> m_plays;

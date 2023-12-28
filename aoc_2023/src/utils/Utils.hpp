@@ -142,4 +142,36 @@ public:
         splits.push_back(string);
         return splits;
     }
+
+    static void StringReplace(std::string& str, char characterToReplace, char characterToPlace) {
+        size_t found = str.find(characterToReplace);
+        while (found != std::string::npos) {
+            str.replace(found,1,std::string{characterToPlace});
+            found = str.find(characterToReplace, found + 1);
+        }
+    }
+
+    static void StringReplace(std::string& str, char characterToReplace, std::string stringToPlace) {
+        size_t found = str.find(characterToReplace);
+        while (found != std::string::npos) {
+            str.replace(found, 1, stringToPlace);
+            found = str.find(characterToReplace, found + stringToPlace.length());
+        }
+    }
+
+    static void StringReplace(std::string& str, std::string stringToReplace, char characterToPlace) {
+        size_t found = str.find(stringToReplace);
+        while (found != std::string::npos) {
+            str.replace(found,stringToReplace.length(), std::string{characterToPlace});
+            found = str.find(stringToReplace, found + 1);
+        }
+    }
+
+    static void StringReplace(std::string& str, std::string stringToReplace, std::string stringToPlace) {
+        size_t found = str.find(stringToReplace);
+        while (found != std::string::npos) {
+            str.replace(found, stringToReplace.length(), stringToPlace);
+            found = str.find(stringToReplace, found + stringToPlace.length());
+        }
+    }
 };

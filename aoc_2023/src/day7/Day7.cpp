@@ -17,7 +17,7 @@ void Day7::Parse() {
 
 std::string Day7::Part1() {
     std::vector<std::pair<play, type>> rankedPlays;
-    for (const auto& play : m_plays)
+    for (const auto play : m_plays)
         rankedPlays.push_back(std::make_pair(play,GetHandType(play.hand)));
 
     std::sort(rankedPlays.rbegin(), rankedPlays.rend(), Day7::CompareRank);
@@ -26,7 +26,16 @@ std::string Day7::Part1() {
 }
 
 std::string Day7::Part2() {
-    return std::to_string(0);
+    std::vector<std::pair<play, type>> rankedPlays;
+    for (const auto play : m_plays) {
+        auto mutableHand = play.hand;
+        ProcessJoker(mutableHand);
+        rankedPlays.push_back(std::make_pair(play, GetHandType(mutableHand)));
+    }
+
+    std::sort(rankedPlays.rbegin(), rankedPlays.rend(), Day7::CompareRank);
+
+    return std::to_string(CalculateWinnings(rankedPlays));
 }
 
 Day7::type Day7::GetHandType(std::string hand) {
@@ -67,6 +76,9 @@ std::vector<std::pair<char,int>> Day7::GetCharacterDistribution(std::string str)
     }
     std::sort(distribution.begin(), distribution.end(),
         [](const auto& a, const auto& b) {
+            if (a.second == b.second)
+                GetCardValue(a.first) > GetCardValue(b.first);
+
             return a.second > b.second;
         });
     return distribution;
@@ -77,10 +89,13 @@ bool Day7::CompareRank(const std::pair<play, type>& a, const std::pair<play, typ
         return a.second > b.second;
 
     for (int i = 0; i < 5; i++) {
-        if (a.first.hand[i] == b.first.hand[i])
+        char charA = a.first.hand[i];
+        char charB = b.first.hand[i];
+
+        if (charA == charB)
             continue;
 
-        return GetCardValue(a.first.hand[i]) > GetCardValue(b.first.hand[i]);
+        return GetCardValue(charA) > GetCardValue(charB);
     }
 }
 
@@ -91,9 +106,29 @@ int Day7::GetCardValue(const char c) {
     return m_mapNonNumericCardValueToNumber.at(c);
 }
 
-int Day7::CalculateWinnings(const std::vector<std::pair<play, type>> rankedPlays) {
-    int winnings = 0;
+Day7::ull Day7::CalculateWinnings(const std::vector<std::pair<play, type>> rankedPlays) {
+    ull winnings = 0;
     for (int i = 0; i < rankedPlays.size(); i++)
-        winnings += (i + 1) * rankedPlays[i].first.bid;
+        winnings += (static_cast<ull>(i) + 1) * static_cast<ull>(rankedPlays[i].first.bid);
     return winnings;
+}
+
+void Day7::ProcessJoker(std::string& hand){
+    auto distribution = GetCharacterDistribution(hand);
+    // no jokers, just ignore
+    if (std::find_if(distribution.begin(), distribution.end(),
+        [](const auto& element) {
+            return element.first == 'J';
+        }) == distribution.end()) {
+        return;
+    }
+
+    // rare edge case all Joker
+    if (distribution.size() == 1 && distribution[0].first == 'J' && distribution[0].second == 5) {
+        Utils::StringReplace(hand, 'J', 'A');
+        return;
+    }
+
+    char jokerReplacementCard = (distribution[0].first == 'J') ? distribution[1].first : distribution[0].first;
+    Utils::StringReplace(hand, 'J', jokerReplacementCard);
 }
