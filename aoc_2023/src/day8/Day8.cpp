@@ -27,13 +27,14 @@ std::string Day8::Part1() {
 }
 
 std::string Day8::Part2() {
-    int stepsTaken = 0;
     std::vector<std::pair<node,ull>> nodes;
+    // find all starting nodes
     for (const auto& [key, value] : m_nodes) {
         if (value.name[2] == 'A')
             nodes.push_back(std::make_pair(value,ULLONG_MAX));
     }
 
+    // find loop length for all nodes
     for (auto& nodeWithLoopLength : nodes) {
         node& currentNode = nodeWithLoopLength.first;
         ull stepsTaken = 0;
@@ -45,6 +46,7 @@ std::string Day8::Part2() {
         nodeWithLoopLength.second = stepsTaken;
     }
 
+    // find lowest common multiple of each loop
     ull total = nodes[0].second;
     for (const auto& node : nodes)
         total = LowestCommonMultiple(total, node.second);
