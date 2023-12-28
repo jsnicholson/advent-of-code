@@ -174,4 +174,11 @@ public:
             found = str.find(stringToReplace, found + stringToPlace.length());
         }
     }
+
+    template <typename Key, typename Value, typename Predicate>
+    std::vector<Key> Where(std::map<Key, Value> container, Predicate predicate) {
+        std::vector<Key> result;
+        std::copy_if(container.begin(), container.end(), std::back_inserter(result), predicate);
+        return result;
+    }
 };
