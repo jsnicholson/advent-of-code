@@ -17,6 +17,11 @@ private:
 	std::string Part2() override;
 
 public:
+	void AdvanceNode(node& node, char instruction);
+	ull GreatestCommonDenominator(ull a, ull b);
+	ull LowestCommonMultiple(ull a, ull b);
+
+public:
 	std::string m_instructions;
 	std::map<std::string, node> m_nodes;
 };

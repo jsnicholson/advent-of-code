@@ -3,6 +3,10 @@
 #include <vector>
 
 class Day {
+public:
+	typedef unsigned long long ull;
+	typedef unsigned long ul;
+	typedef long long ll;
 
 public:
 	bool LoadFile(const std::string inputfilename);
