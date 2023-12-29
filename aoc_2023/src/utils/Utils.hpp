@@ -181,4 +181,33 @@ public:
         std::copy_if(container.begin(), container.end(), std::back_inserter(result), predicate);
         return result;
     }
+
+    static std::pair<int, int> add(std::pair<int, int> a, int b) {
+        return std::pair<int, int>{a.first + b, a.second + b};
+    }
+
+    static std::pair<int, int> add(std::pair<int, int> a, std::pair<int, int> b) {
+        return std::pair<int, int>{a.first + b.first, a.second + b.second};
+    }
+
+    static std::pair<int, int> subtract(std::pair<int, int> a, int b) {
+        return std::pair<int, int>{a.first - b, a.second - b};
+    }
+
+    static std::pair<int, int> subtract(std::pair<int, int> a, std::pair<int, int> b) {
+        return std::pair<int, int>{a.first - b.first, a.second - b.second};
+    }
+
+    static std::pair<int, int> multiply(std::pair<int, int> a, int b) {
+        return std::pair<int, int>{a.first * b, a.second * b};
+    }
+
+    static std::pair<int, int> multiply(std::pair<int, int> a, std::pair<int, int> b) {
+        return std::pair<int, int>{a.first * b.first, a.second * b.second};
+    }
+
+    template <typename T>
+    static bool contains(std::vector<T> v, T i) {
+        return std::find(v.begin(), v.end(), i) != v.end();
+    }
 };
