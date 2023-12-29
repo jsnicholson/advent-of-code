@@ -16,12 +16,14 @@ void Day10::Parse() {
 }
 
 std::string Day10::Part1() {
-    std::vector<coord> vecCoordsPartOfLoop = CalculateLoop(m_startCoord);
-    return std::to_string(((int)vecCoordsPartOfLoop.size()/2));
+    std::vector<coord> vecLoopCoords = CalculateLoop(m_startCoord);
+    return std::to_string(((int)vecLoopCoords.size()/2));
 }
 
 std::string Day10::Part2() {
-    return std::to_string(0);
+    std::vector<coord> vecLoopCoords = CalculateLoop(m_startCoord);
+    int shoelaceResult = ShoeLace(vecLoopCoords);
+    return std::to_string((std::abs(shoelaceResult) - vecLoopCoords.size() + 3) / 2);
 }
 
 std::vector<Day10::coord> Day10::CalculateLoop(const coord& startCoord) {
