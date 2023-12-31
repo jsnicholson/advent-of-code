@@ -56,7 +56,7 @@ public:
 	std::vector<coord> CalculateLoop(const coord& startCoord);
 	std::vector<direction> GetValidDirections(const coord& fromCoord, const direction& lastDirection);
 	std::pair<char, coord> FindConnectingNeighbour(const coord&,const std::vector<direction>&);
-	int ShoeLace(const std::vector<coord>& path);
+	int CalculateArea(const std::vector<coord>& path);
 
 public:
 	coord m_startCoord;

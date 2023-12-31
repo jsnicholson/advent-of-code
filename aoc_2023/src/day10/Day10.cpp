@@ -22,8 +22,9 @@ std::string Day10::Part1() {
 
 std::string Day10::Part2() {
     std::vector<coord> vecLoopCoords = CalculateLoop(m_startCoord);
-    int shoelaceResult = ShoeLace(vecLoopCoords);
-    return std::to_string((std::abs(shoelaceResult) - vecLoopCoords.size() + 3) / 2);
+    int loopArea = CalculateArea(vecLoopCoords);
+    int boundaryPoints = vecLoopCoords.size();
+    return std::to_string((std::abs(loopArea) - boundaryPoints + 3) / 2);
 }
 
 std::vector<Day10::coord> Day10::CalculateLoop(const coord& startCoord) {
@@ -63,7 +64,8 @@ std::pair<char, Day10::coord> Day10::FindConnectingNeighbour(const coord& starti
     return std::make_pair(NULL,none);
 }
 
-int Day10::ShoeLace(const std::vector<coord>& path) {
+// using shoelace algorithm
+int Day10::CalculateArea(const std::vector<coord>& path) {
     if (path.size() <= 1) {
         return 0;
     }
