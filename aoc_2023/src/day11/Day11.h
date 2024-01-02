@@ -18,6 +18,7 @@ public:
 	void AddColumnsToUniverse(universe& universe, std::vector<size_t> columns);
 	std::vector<size_t> GetIndicesOfEmptyRows(const universe& universe);
 	std::vector<size_t> GetIndicesOfEmptyColumns(const universe& universe);
+	std::vector<coord> FindAllGalaxies(const universe& universe);
 
 public:
 	universe m_universe;

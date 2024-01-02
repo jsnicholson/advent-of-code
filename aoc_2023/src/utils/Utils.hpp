@@ -210,4 +210,35 @@ public:
     static bool contains(std::vector<T> v, T i) {
         return std::find(v.begin(), v.end(), i) != v.end();
     }
+
+    static std::vector<size_t> FindAll(std::string str, char item) {
+        std::vector<size_t> vecFound = {};
+        size_t pos = str.find(item, 0);
+        while (pos != std::string::npos) {
+            vecFound.push_back(pos);
+            pos = str.find(item, pos + 1);
+        }
+        return vecFound;
+    }
+
+    static std::vector<size_t> FindAll(std::string str, std::string sub) {
+        std::vector<size_t> vecFound = {};
+        size_t pos = str.find(sub, 0);
+        while (pos != std::string::npos) {
+            vecFound.push_back(pos);
+            pos = str.find(sub, pos + 1);
+        }
+        return vecFound;
+    }
+
+    static std::vector<std::pair<size_t, size_t>> FindAll(std::vector<std::string> container, char c) {
+        std::vector<std::pair<size_t,size_t>> vecFound = {};
+        for (std::vector<std::string>::iterator it = container.begin(); it != container.end(); it++) {
+            size_t rowIndex = std::distance(container.begin(), it);
+            auto b = FindAll(*it, c);
+            for (const auto i : b)
+                vecFound.push_back(std::make_pair(rowIndex,i));
+        }
+        return vecFound;
+    }
 };
