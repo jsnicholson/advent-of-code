@@ -103,7 +103,7 @@ int Day7::GetCardValue(const char c) {
     if (std::isdigit(c))
         return c - '0';
 
-    return m_mapNonNumericCardValueToNumber.at(c);
+    return mapNonNumericCardValueToNumber.at(c);
 }
 
 Day7::ull Day7::CalculateWinnings(const std::vector<std::pair<play, type>> rankedPlays) {

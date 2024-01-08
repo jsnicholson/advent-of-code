@@ -198,12 +198,14 @@ public:
         return std::pair<int, int>{a.first - b.first, a.second - b.second};
     }
 
-    static std::pair<int, int> multiply(std::pair<int, int> a, int b) {
-        return std::pair<int, int>{a.first * b, a.second * b};
+    template <typename T>
+    static std::pair<T, T> multiply(std::pair<T, T> a, T b) {
+        return std::pair<T, T>{a.first * b, a.second * b};
     }
 
-    static std::pair<int, int> multiply(std::pair<int, int> a, std::pair<int, int> b) {
-        return std::pair<int, int>{a.first * b.first, a.second * b.second};
+    template <typename T>
+    static std::pair<T, T> multiply(std::pair<T, T> a, std::pair<T,T> b) {
+        return std::pair<T, T>{a.first * b.second, a.second * b.second};
     }
 
     template <typename T>

@@ -22,7 +22,7 @@ public:
 		five_of_a_kind = 6
 	};
 
-	static inline const std::map<char, int> m_mapNonNumericCardValueToNumber = {
+	static inline const std::map<char, int> mapNonNumericCardValueToNumber = {
 		{'A',14},
 		{'K',13},
 		{'Q',12},

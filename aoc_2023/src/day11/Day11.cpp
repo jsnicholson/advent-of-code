@@ -2,14 +2,17 @@
 
 #include "Utils.hpp"
 
+#include <format>
+
 void Day11::Parse() {
     m_universe = data;
 }
 
 std::string Day11::Part1() {
-    const universe expandedUniverse = CalculateExpandedUniverse(m_universe);
+    const universe expandedUniverse = CalculateExpandedUniverse(m_universe, m_expansionPart1);
     const std::vector<coord> galaxyCoords = FindAllGalaxies(expandedUniverse);
-    long long total = 0;
+    int64_t total = 0;
+
     for (int i = 0; i < galaxyCoords.size(); i++) {
         for (int j = 0; j < galaxyCoords.size(); j++) {
             if (i == j)
@@ -21,39 +24,60 @@ std::string Day11::Part1() {
 }
 
 std::string Day11::Part2() {
-    return std::to_string(0);
+    const std::vector<size_t> vecEmptyRows = GetIndicesOfEmptyRows(m_universe);
+    const std::vector<size_t> vecEmptyColumns = GetIndicesOfEmptyColumns(m_universe);
+    const std::vector<coord> galaxyCoords = FindAllGalaxies(m_universe);
+    std::vector<coord> expandedGalaxyCoords = {};
+    for (const auto& galaxy : galaxyCoords) {
+        coord displacement = CalculateDisplacementAfterExpansion(vecEmptyRows, vecEmptyColumns, galaxy);
+        displacement = Utils::multiply<int64_t>(displacement, m_expansionPart2 - 1);
+        expandedGalaxyCoords.push_back(Utils::add(galaxy, displacement));
+    }
+
+    int64_t total = 0;
+    for (int i = 0; i < expandedGalaxyCoords.size(); i++) {
+        for (int j = 0; j < expandedGalaxyCoords.size(); j++) {
+            if (i == j)
+                continue;
+            total += CalculateShortestDiscreteDistanceBetweenPoints(expandedGalaxyCoords[i], expandedGalaxyCoords[j]);
+        }
+    }
+    return std::to_string(total/2);
 }
 
 int Day11::CalculateShortestDiscreteDistanceBetweenPoints(const coord& a, const coord& b) {
     return std::abs(a.first - b.first) + std::abs(a.second - b.second);
 }
 
-Day11::universe Day11::CalculateExpandedUniverse(const universe& originalUniverse) {
+Day11::universe Day11::CalculateExpandedUniverse(const universe& originalUniverse, const int expansion) {
     universe expandedUniverse = originalUniverse;
     const auto emptyColumns = GetIndicesOfEmptyColumns(expandedUniverse);
     const auto emptyRows = GetIndicesOfEmptyRows(expandedUniverse);
-    AddColumnsToUniverse(expandedUniverse, emptyColumns);
-    AddRowsToUniverse(expandedUniverse, emptyRows);
+    AddColumnsToUniverse(expandedUniverse, emptyColumns, expansion);
+    AddRowsToUniverse(expandedUniverse, emptyRows, expansion);
     return expandedUniverse;
 }
 
-void Day11::AddRowsToUniverse(universe& universe, std::vector<size_t> rowIndices) {
+void Day11::AddRowsToUniverse(universe& universe, std::vector<size_t> rowIndices, const int expansion) {
+    int displacement = expansion - 1;
     for (std::vector<size_t>::iterator it = rowIndices.begin(); it != rowIndices.end(); it++)
-        *it += std::distance(rowIndices.begin(), it);
+        *it += std::distance(rowIndices.begin(), it)*displacement;
 
     size_t rowLength = universe[0].size();
     for (const auto& rowIndex : rowIndices)
+        for(int i = 0; i < displacement; i++)
         universe.insert(universe.begin() + rowIndex, std::string(rowLength,'.'));
 }
 
-void Day11::AddColumnsToUniverse(universe& universe, std::vector<size_t> columnIndices) {
+void Day11::AddColumnsToUniverse(universe& universe, std::vector<size_t> columnIndices, const int expansion) {
+    int displacement = expansion - 1;
     for (std::vector<size_t>::iterator it = columnIndices.begin(); it != columnIndices.end(); it++)
-        *it += std::distance(columnIndices.begin(), it);
+        *it += std::distance(columnIndices.begin(), it)*displacement;
 
     size_t columnLength = universe.size();
     for (auto& row : universe) {
         for (const auto& columnIndex : columnIndices)
-            row.insert(columnIndex, 1,'.');
+            row.insert(columnIndex, displacement,'.');
     }
 }
 
@@ -88,4 +112,17 @@ std::vector<Day11::coord> Day11::FindAllGalaxies(const universe& universe) {
             vecGalaxyCoords.push_back(std::make_pair(rowIndex,i));
     }
     return vecGalaxyCoords;
+}
+
+Day11::coord Day11::CalculateDisplacementAfterExpansion(const std::vector<size_t>& vecEmptyRows, const std::vector<size_t>& vecEmptyColumns, const coord& point){
+    coord result;
+    result.first = std::count_if(vecEmptyRows.begin(), vecEmptyRows.end(),
+        [point](const size_t i) {
+            return i < point.first;
+        });
+    result.second = std::count_if(vecEmptyColumns.begin(), vecEmptyColumns.end(),
+        [point](const size_t i) {
+            return i < point.second;
+        });
+    return result;
 }
