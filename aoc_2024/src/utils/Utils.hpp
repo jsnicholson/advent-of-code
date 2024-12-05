@@ -9,6 +9,8 @@
 #include <vector>
 #include <numeric>
 #include <iostream>
+#include <regex>
+#include <map>
 
 #include "Days.hpp"
 
@@ -141,6 +143,20 @@ public:
         }
         splits.push_back(string);
         return splits;
+    }
+
+    static std::vector<std::string> SplitOnWhitespace(std::string input) {
+        std::regex whitespaceRegex("\\s+");
+        std::sregex_token_iterator iter(input.begin(), input.end(), whitespaceRegex, -1);
+        std::sregex_token_iterator end;
+
+        std::vector<std::string> tokens(iter, end);
+
+        tokens.erase(std::remove_if(tokens.begin(), tokens.end(),
+            [](const std::string& s) { return s.empty(); }),
+            tokens.end());
+
+        return tokens;
     }
 
     static void StringReplace(std::string& str, char characterToReplace, char characterToPlace) {
