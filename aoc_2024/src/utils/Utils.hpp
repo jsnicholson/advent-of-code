@@ -303,17 +303,6 @@ public:
         return matches;
     }
 
-    static std::vector<std::string> FindAllSmatch(std::string text, std::regex pattern) {
-        std::smatch matches;
-        std::regex_search(text, matches, pattern);
-        std::vector<std::string> result(matches.size());
-        std::transform(matches.begin(), matches.end(), result.begin(),
-            [](const std::sub_match<std::string::const_iterator>& sub) {
-                return sub.str();
-            });
-        return result;
-    }
-
     static std::vector<int> ToVectorInt(std::vector<std::string> vectorStrings) {
         std::vector<int> vectorInts;
 
@@ -332,5 +321,17 @@ public:
             pos += substring.length();
         }
         return occurrences;
+    }
+
+    /// <summary>
+    /// Returns true if any elements of vector A appear in vector B
+    /// </summary>
+    /// <param name="vectorA"></param>
+    /// <param name="vectorB"></param>
+    /// <returns></returns>
+    static bool AnyCommonElement(const std::vector<int>& vectorA, const std::vector<int>& vectorB) {
+        return std::any_of(vectorA.begin(), vectorA.end(), [&vectorB](int value) {
+            return std::find(vectorB.begin(), vectorB.end(), value) != vectorB.end();
+            });
     }
 };
