@@ -2,3 +2,4 @@
 Your puzzle answer was 2642.
 
 --- Part Two ---
+Your puzzle answer was 1974.

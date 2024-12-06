@@ -198,6 +198,15 @@ public:
         return result;
     }
 
+    static const inline std::pair<int, int> TOPLEFT = std::make_pair(-1, -1);
+    static const inline std::pair<int, int> TOP = std::make_pair(0, -1);
+    static const inline std::pair<int, int> TOPRIGHT = std::make_pair(1, -1);
+    static const inline std::pair<int, int> RIGHT = std::make_pair(1, 0);
+    static const inline std::pair<int, int> BOTTOMRIGHT = std::make_pair(1, 1);
+    static const inline std::pair<int, int> BOTTOM = std::make_pair(0, 1);
+    static const inline std::pair<int, int> BOTTOMLEFT = std::make_pair(-1, 1);
+    static const inline std::pair<int, int> LEFT = std::make_pair(-1, 0);
+
     static std::pair<int, int> add(std::pair<int, int> a, int b) {
         return std::pair<int, int>{a.first + b, a.second + b};
     }
@@ -212,6 +221,30 @@ public:
 
     static std::pair<int, int> subtract(std::pair<int, int> a, std::pair<int, int> b) {
         return std::pair<int, int>{a.first - b.first, a.second - b.second};
+    }
+
+    template<typename T>
+    static std::pair<T, T> Add(std::pair<T, T> a, T b) {
+        return std::pair<T, T>{a.first + b, a.second + b};
+    }
+
+    template<typename T>
+    static std::pair<T, T> Add(std::pair<T, T> a, std::pair<T, T> b) {
+        return std::pair<T, T>{a.first + b.first, a.second + b.second};
+    }
+
+    template<typename T>
+    static std::pair<T, T> Subtract(std::pair<T, T> a, T b) {
+        return std::pair<T, T>{a.first - b, a.second - b};
+    }
+
+    template<typename T>
+    static std::pair<T, T> Subtract(std::pair<T, T> a, std::pair<T, T> b) {
+        return std::pair<T, T>{a.first - b.first, a.second - b.second};
+    }
+
+    static char ElementAt(std::vector<std::string> str, std::pair<size_t, size_t> pos) {
+        return str[pos.first][pos.second];
     }
 
     template <typename T>
