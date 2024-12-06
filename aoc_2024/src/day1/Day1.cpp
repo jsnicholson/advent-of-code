@@ -30,5 +30,13 @@ std::string Day1::Part1() {
 }
 
 std::string Day1::Part2() {
-	return std::string("unimplemented");
+	std::vector<int> leftList = m_leftList, rightList = m_rightList;
+	int result = 0;
+
+	for (std::vector<int>::iterator it = leftList.begin(); it != leftList.end(); it++) {
+		int value = *it;
+		result += value * std::count(rightList.begin(), rightList.end(), value);
+	}
+
+	return std::to_string(result);
 }
