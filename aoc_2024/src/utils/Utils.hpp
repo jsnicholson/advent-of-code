@@ -270,13 +270,24 @@ public:
         return matches;
     }
 
-    static std::vector<int> ToVectorInt(std::vector<std::string> vectorString) {
-        std::vector<int> vectorInt;
+    static std::vector<std::string> FindAllSmatch(std::string text, std::regex pattern) {
+        std::smatch matches;
+        std::regex_search(text, matches, pattern);
+        std::vector<std::string> result(matches.size());
+        std::transform(matches.begin(), matches.end(), result.begin(),
+            [](const std::sub_match<std::string::const_iterator>& sub) {
+                return sub.str();
+            });
+        return result;
+    }
 
-        for (std::vector<std::string>::iterator it = vectorString.begin(); it != vectorString.end(); it++) {
-            vectorInt.push_back(std::stoi(*it));
-        }
+    static std::vector<int> ToVectorInt(std::vector<std::string> vectorStrings) {
+        std::vector<int> vectorInts;
 
-        return vectorInt;
+        std::transform(vectorStrings.begin(), vectorStrings.end(), std::back_inserter(vectorInts), [](const std::string& str) {
+            return std::stoi(str);
+        });
+
+        return vectorInts;
     }
 };

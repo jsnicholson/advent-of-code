@@ -18,7 +18,19 @@ std::string Day3::Part1() {
 }
 
 std::string Day3::Part2() {
-    return std::string("unimplemented");
+	int result = 0;
+
+	std::vector<std::string> validText = Utils::FindAll(m_program, std::regex(R"((?:^|do\(\))(.*?)(?:$|don't\(\)))"));
+	std::string validProgram = std::accumulate(validText.begin(), validText.end(), std::string{});
+	Utils::StringReplace(validProgram, "do()", "");
+	Utils::StringReplace(validProgram, "don't()", "");
+	std::vector<instruction> instructions = Utils::FindAll(validProgram, std::regex(R"(mul\(\d+,\d+\))"));
+
+	for (std::vector<instruction>::const_iterator it = instructions.begin(); it != instructions.end(); it++) {
+		result += Day3::ExecuteMultiply(*it);
+	}
+
+    return std::to_string(result);
 }
 
 int Day3::ExecuteMultiply(instruction instruction) {
