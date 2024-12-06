@@ -11,6 +11,7 @@ public:
 public:
 	std::map<int, std::vector<int>> m_mapRules;
 	std::vector<update> m_updates;
+	std::vector<update> m_invalidUpdates;
 
 private:
 	void Parse() override;
