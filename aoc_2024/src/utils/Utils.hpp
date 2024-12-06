@@ -259,4 +259,14 @@ public:
         }
         return vecFound;
     }
+
+    static std::vector<int> ToVectorInt(std::vector<std::string> vectorString) {
+        std::vector<int> vectorInt;
+
+        for (std::vector<std::string>::iterator it = vectorString.begin(); it != vectorString.end(); it++) {
+            vectorInt.push_back(std::stoi(*it));
+        }
+
+        return vectorInt;
+    }
 };
