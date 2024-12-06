@@ -290,4 +290,14 @@ public:
 
         return vectorInts;
     }
+
+    static int CountOfSubstringInString(std::string string, std::string substring) {
+        int occurrences = 0;
+        size_t pos = 0;
+        while ((pos = string.find(substring, pos)) != std::string::npos) {
+            ++occurrences;
+            pos += substring.length();
+        }
+        return occurrences;
+    }
 };
