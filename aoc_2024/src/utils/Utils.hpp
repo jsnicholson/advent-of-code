@@ -260,6 +260,16 @@ public:
         return vecFound;
     }
 
+    static std::vector<std::string> FindAll(std::string text, std::regex pattern) {
+        std::vector<std::string> matches;
+
+        for (std::sregex_iterator it = std::sregex_iterator(text.begin(), text.end(), pattern); it != std::sregex_iterator(); it++) {
+            matches.push_back(it->str());
+        }
+
+        return matches;
+    }
+
     static std::vector<int> ToVectorInt(std::vector<std::string> vectorString) {
         std::vector<int> vectorInt;
 
