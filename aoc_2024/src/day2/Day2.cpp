@@ -21,7 +21,13 @@ std::string Day2::Part1() {
 }
 
 std::string Day2::Part2() {
-	return std::string("unimplemented");
+	int count = 0;
+
+	for (std::vector<report>::const_iterator it = m_reports.begin(); it != m_reports.end(); it++) {
+		count += CanReportBeSafe(*it);
+	}
+
+	return std::to_string(count);
 }
 
 bool Day2::IsReportSafe(report report) {
@@ -46,5 +52,15 @@ int Day2::GetDirection(int a, int b) {
 bool Day2::InSafeRange(int a, int b) {
 	int difference = std::abs(a - b);
 	if (difference >= Day2::MIN && difference <= Day2::MAX) return true;
+	return false;
+}
+
+bool Day2::CanReportBeSafe(report report) {
+	for (int i = 0; i < report.size(); i++) {
+		Day2::report newReport = report;
+		newReport.erase(newReport.begin() + i);
+		if (Day2::IsReportSafe(newReport)) return true;
+	}
+
 	return false;
 }

@@ -18,4 +18,5 @@ public:
 	bool IsReportSafe(report report);
 	int GetDirection(int a, int b);
 	bool InSafeRange(int a, int b);
+	bool CanReportBeSafe(report report);
 };
